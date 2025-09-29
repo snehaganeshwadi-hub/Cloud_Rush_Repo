@@ -1,0 +1,2 @@
+table_name,table_type,business_key,descriptive_fields,source_table
+AI_passenger_details,hub,PassengerID,,Airindia_AI_Passenger_Details

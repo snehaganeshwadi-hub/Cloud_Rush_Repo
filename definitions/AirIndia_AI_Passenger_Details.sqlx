@@ -1,0 +1,12 @@
+config {
+      type: "table", // or type: "table"
+      schema: "Cloud_Rush_dataset", // This creates the view/table in a 'staging' schema within your Dataform-managed BigQuery project/dataset
+      description: "AirIndia Passenger Details"
+    }
+
+SELECT
+      *
+      -- Apply transformations
+    FROM
+      ${ref("Airindia_AI_Passenger_Details")}
+
