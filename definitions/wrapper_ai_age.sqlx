@@ -1,4 +1,3 @@
-
 config {
   type: "declaration",
   database: "cloud-rush-473406",

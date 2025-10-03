@@ -1,4 +1,3 @@
-
 config {
     type: "declaration",
     database: "cloud-rush-473406", // Replace with your staging project ID
