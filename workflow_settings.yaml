@@ -1,0 +1,4 @@
+defaultProject: cloud-rush-473406
+defaultDataset: dataform
+defaultAssertionDataset: dataform_assertions
+dataformCoreVersion: 3.0.26

@@ -1,0 +1,5 @@
+sat_name,parent_hub,attributes,source_table
+sat_passenger_profile,hub_passenger,dob|gender|loyalty_status,stg_airindia_passenger
+sat_passenger_profile,hub_passenger,dob|gender|loyalty_status,stg_spicejet_passenger
+sat_flight_details,hub_flight,departure_time|arrival_time|delay_minutes,stg_airindia_flight
+sat_flight_details,hub_flight,departure_time|arrival_time|delay_minutes,stg_spicejet_flight

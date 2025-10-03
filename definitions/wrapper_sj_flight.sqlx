@@ -1,0 +1,8 @@
+
+config {
+    type: "declaration",
+    database: "cloud-rush-473406", // Replace with your staging project ID
+    schema: "Cloud_Rush_dataset", // Replace with your staging dataset name
+    name: "SpiceJet_Flight_Details", // Replace with your staging table name
+    description: "SpiceJet Flight Details"
+}

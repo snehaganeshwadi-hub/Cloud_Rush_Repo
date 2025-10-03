@@ -1,0 +1,11 @@
+hub_name,business_key,source_table
+hub_passenger,passenger_id,Airindia_AI_Passenger_Details
+hub_passenger,passenger_id,SpiceJet_AI_Passenger_Details
+hub_booking,bookingid,Airindia_Booking_Details
+hub_booking,bookingid,,SpiceJet_Booking_Details
+hub_flight,flight_id,Airindia_Flight_Details
+hub_flight,flight_id,Spice_jet_Flight_ Details
+hub_airport,airportcode,Airindia_AirPort_Details
+hub_airport,airportcode,Airindia_AirPort_Details
+hub_payment,paymentId,Airindia_Payment
+hub_payment,paymentId,SpiceJet_Payment
