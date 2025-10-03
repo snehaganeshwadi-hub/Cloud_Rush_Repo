@@ -1,8 +1,9 @@
 
 config {
-    type: "declaration",
-    database: "cloud-rush-473406", // Replace with your staging project ID
-    schema: "Cloud_Rush_dataset", // Replace with your staging dataset name
-    name: "Airindia_Age_Group", // Replace with your staging table name
-    description: "AirIndia Age Details"
+  type: "declaration",
+  database: "cloud-rush-473406",
+  schema: "cloud_rush_dataset",   // must match exactly
+  name: "Airindia_Age_Group",     // must match exactly
+  description: "AirIndia Age Details"
 }
+ 
