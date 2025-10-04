@@ -1,0 +1,15 @@
+
+config {
+ type: "table",
+  tags: ["hub"],
+  partitionBy: "load_dts",
+  clusterBy: ["PassengerID"]
+}
+SELECT
+  TO_HEX(SHA256(CAST(PassengerID AS STRING))) AS PassengerID_hk,
+  PassengerID AS PassengerID_bk,
+  CURRENT_DATE() AS load_dts,
+  'SpiceJet_AI_Passenger_Details' as record_source
+FROM
+  ${ref('SpiceJet_AI_Passenger_Details')}
+   

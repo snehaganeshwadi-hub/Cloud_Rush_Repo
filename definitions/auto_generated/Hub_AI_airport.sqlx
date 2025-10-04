@@ -1,0 +1,15 @@
+
+config {
+ type: "table",
+  tags: ["hub"],
+  partitionBy: "load_dts",
+  clusterBy: ["AirportCode"]
+}
+SELECT
+  TO_HEX(SHA256(CAST(AirportCode AS STRING))) AS AirportCode_hk,
+  AirportCode AS AirportCode_bk,
+  CURRENT_DATE() AS load_dts,
+  'Airindia_AirPort_Details' as record_source
+FROM
+  ${ref('Airindia_AirPort_Details')}
+   

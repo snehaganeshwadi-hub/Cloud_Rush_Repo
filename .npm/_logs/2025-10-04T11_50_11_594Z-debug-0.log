@@ -1,0 +1,32 @@
+0 verbose cli /usr/local/nvm/versions/node/v22.20.0/bin/node /usr/local/nvm/versions/node/v22.20.0/bin/npm
+1 info using npm@11.6.1
+2 info using node@v22.20.0
+3 silly config load:file:/usr/local/nvm/versions/node/v22.20.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/tmp/tmp-5587-oP2S8lGIqhhh/.npmrc
+5 silly config load:file:/home/snehaganeshwadi/.npmrc
+6 silly config load:file:/usr/local/nvm/versions/node/v22.20.0/etc/npmrc
+7 verbose title npm i
+8 verbose argv "i" "--ignore-scripts"
+9 verbose logfile logs-max:10 dir:/home/snehaganeshwadi/.npm/_logs/2025-10-04T11_50_11_594Z-
+10 verbose logfile /home/snehaganeshwadi/.npm/_logs/2025-10-04T11_50_11_594Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly logfile done cleaning log files
+13 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+14 silly idealTree buildDeps
+15 silly fetch manifest @dataform/core@3.0.26
+16 silly packumentCache full:https://registry.npmjs.org/@dataform%2fcore cache-miss
+17 http cache https://registry.npmjs.org/@dataform%2fcore 17ms (cache hit)
+18 silly packumentCache full:https://registry.npmjs.org/@dataform%2fcore set size:610013 disposed:false
+19 silly placeDep ROOT @dataform/core@3.0.26 OK for:  want: 3.0.26
+20 silly reify moves {}
+21 silly audit bulk request { '@dataform/core': [ '3.0.26' ] }
+22 http cache @dataform/core@https://registry.npmjs.org/@dataform/core/-/core-3.0.26.tgz 0ms (cache hit)
+23 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 291ms
+24 silly audit report {}
+25 silly ADD node_modules/@dataform/core
+26 verbose cwd /tmp/tmp-5587-oP2S8lGIqhhh
+27 verbose os Linux 6.6.105+
+28 verbose node v22.20.0
+29 verbose npm  v11.6.1
+30 verbose exit 0
+31 info ok

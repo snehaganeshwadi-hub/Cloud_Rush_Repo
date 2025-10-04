@@ -1,0 +1,16 @@
+config {
+type: "table",
+bigquery: {
+partitionBy: "load_dts",
+clusterBy: ["PassengerID"]
+},
+tags: ["hub"]
+}
+
+SELECT
+TO_HEX(SHA256(CAST(PassengerID AS STRING))) AS PassengerID_hk,
+PassengerID AS PassengerID_bk,
+CURRENT_DATE() AS load_dts,
+'Airindia_AI_Passenger_Details' AS record_source
+FROM
+${ref("Airindia_AI_Passenger_Details")}

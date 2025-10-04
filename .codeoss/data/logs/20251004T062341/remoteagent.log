@@ -1,0 +1,17 @@
+2025-10-04 06:23:42.088 [info] 
+
+
+
+
+2025-10-04 06:23:42.120 [info] Extension host agent started.
+2025-10-04 06:23:42.477 [error] [127.0.0.1][4a69f7c0][ExtensionHostConnection] Unknown reconnection token (never seen).
+2025-10-04 06:23:42.929 [error] [127.0.0.1][d9d2b949][ManagementConnection] Unknown reconnection token (never seen).
+2025-10-04 06:23:45.522 [info] [127.0.0.1][f099e654][ManagementConnection] New connection established.
+2025-10-04 06:23:45.627 [info] [127.0.0.1][c6e793f8][ExtensionHostConnection] New connection established.
+2025-10-04 06:23:46.409 [info] [127.0.0.1][c6e793f8][ExtensionHostConnection] <1853> Launched Extension Host Process.
+2025-10-04 06:28:06.036 [info] [127.0.0.1][c6e793f8][ExtensionHostConnection] The client has reconnected.
+2025-10-04 06:28:06.837 [info] [127.0.0.1][f099e654][ManagementConnection] The client has reconnected.
+2025-10-04 08:21:41.719 [info] [127.0.0.1][f099e654][ManagementConnection] The client has disconnected, will wait for reconnection 3h before disposing...
+2025-10-04 10:48:44.791 [info] [127.0.0.1][f099e654][ManagementConnection] Another client has connected, will shorten the wait for reconnection 5m before disposing...
+2025-10-04 10:48:44.792 [info] [127.0.0.1][f099e654][ManagementConnection] The client has reconnected.
+2025-10-04 10:48:44.793 [info] [127.0.0.1][c6e793f8][ExtensionHostConnection] The client has reconnected.

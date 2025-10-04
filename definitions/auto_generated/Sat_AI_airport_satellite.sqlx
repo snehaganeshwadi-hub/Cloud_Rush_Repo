@@ -1,0 +1,44 @@
+
+config {
+ type: "table",
+  tags: ["hub"],
+  partitionBy: "load_dts",
+  clusterBy: ["AirportCode"]
+}
+// SCD Type 2 History Tracking
+// Track changes in descriptive attributes
+with source_data as (
+ SELECT
+  TO_HEX(SHA256(CAST(AirportCode AS STRING))) AS AirportCode_hk,
+  AirportCode AS AirportCode_bk,
+  CURRENT_DATE() AS load_dts,
+  'Airindia_AirPort_Details' as record_source
+FROM
+  ${ref('Airindia_AirPort_Details')}
+),
+scd2 as (
+ select
+   s.AirportCode,
+   s.AirportName,
+   s.load_dts,
+   s.record_source,
+   case
+     when t.AirportCode is null then true
+     when s.AirportName <> t.AirportName then true
+     else false
+   end as is_changed
+ from source_data s
+ left join Sat_AI_airport_satellite t
+ on s.AirportCode = t.AirportCode
+ and t.is_current = true
+)
+select
+ AirportCode,
+ AirportName,
+ load_dts,
+ record_source,
+ case when is_changed then true else false end as is_current,
+ case when is_changed then load_dts else null end as effective_start_date,
+ null as effective_end_date
+from scd2
+   

@@ -1,0 +1,15 @@
+
+config {
+ type: "table",
+  tags: ["hub"],
+  partitionBy: "load_dts",
+  clusterBy: ["PaymentID"]
+}
+SELECT
+  TO_HEX(SHA256(CAST(PaymentID AS STRING))) AS PaymentID_hk,
+  PaymentID AS PaymentID_bk,
+  CURRENT_DATE() AS load_dts,
+  'SpiceJet_Payment' as record_source
+FROM
+  ${ref('SpiceJet_Payment')}
+   

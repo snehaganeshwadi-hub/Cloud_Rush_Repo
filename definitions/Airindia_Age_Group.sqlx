@@ -1,0 +1,7 @@
+config {
+  type: "declaration",
+  database: "cloud-rush-473406",
+  schema: "cloud_rush_dataset",   // must match exactly
+  name: "Airindia_Age_Group",     // must match exactly
+  description: "AirIndia Age Details"
+}

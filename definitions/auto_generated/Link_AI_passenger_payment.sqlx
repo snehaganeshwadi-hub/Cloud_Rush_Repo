@@ -1,0 +1,14 @@
+
+config {
+ type: "table",
+  tags: ["hub"],
+  partitionBy: "load_dts",
+  clusterBy: ["PaymentID|BookingID"]
+}
+SELECT
+  TO_HEX(SHA256(CAST(PaymentID|BookingID AS STRING))) AS PaymentID|BookingID_hk,
+  PaymentID|BookingID AS PaymentID|BookingID_bk,
+  CURRENT_DATE() AS load_dts,
+  'Airindia_Payment' as record_source
+FROM
+  ${ref('Airindia_Payment')}
