@@ -580,3 +580,8 @@ cd auto_generated
 cd definitions/auto_generated
 ls -lrt 
 cd ..
+git add .
+git commit -m "add generated hub sqlx files"
+git push origin Cloud_Rush_Development
+git branch
+git checkout Cloud_Rush_Development
