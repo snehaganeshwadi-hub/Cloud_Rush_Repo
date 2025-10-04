@@ -1839,3 +1839,31 @@ I1004 13:14:31.996035    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sen
 I1004 13:14:31.996163    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>
 I1004 13:15:31.994137    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 824 bytes>
 I1004 13:15:31.994254    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>
+I1004 13:16:31.998052    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 824 bytes>
+I1004 13:16:31.998186    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>
+I1004 13:17:31.998514    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 824 bytes>
+I1004 13:17:31.998656    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>
+I1004 13:18:31.997845    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 824 bytes>
+I1004 13:18:31.998011    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>
+I1004 13:19:31.994272    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 824 bytes>
+I1004 13:19:31.994407    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>
+I1004 13:20:31.997096    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 824 bytes>
+I1004 13:20:31.997245    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>
+I1004 13:21:32.001474    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 824 bytes>
+I1004 13:21:32.001596    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>
+I1004 13:22:32.001940    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 824 bytes>
+I1004 13:22:32.002183    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>
+I1004 13:23:32.003498    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 824 bytes>
+I1004 13:23:32.003626    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>
+I1004 13:24:21.700411    5318 conn_opt.go:55] jsonrpc2: --> request #2: remoteRepositories/list: {}
+E1004 13:24:21.702310    5318 metrics.go:196] error setting metric metadata since metric event is not set
+E1004 13:24:21.702335    5318 metrics.go:196] error setting metric metadata since metric event is not set
+I1004 13:24:21.702345    5318 conversation.go:510] response from ListRemoteRepositories <nil>
+E1004 13:24:21.702382    5318 server.go:486] error fulfilling "remoteRepositories/list" request #2, &{}: Get "https://cloudcode-pa.googleapis.com:443/v1internal:listRemoteRepositories?alt=json&pageToken=&prettyPrint=false&project=cloudshell-gca": credentials: invalid token JSON from metadata: EOF
+I1004 13:24:21.702455    5318 conn_opt.go:99] jsonrpc2: <-- error #2: remoteRepositories/list: {"code":-32603,"message":"Get \"https://cloudcode-pa.googleapis.com:443/v1internal:listRemoteRepositories?alt=json\u0026pageToken=\u0026prettyPrint=false\u0026project=cloudshell-gca\": credentials: invalid token JSON from metadata: EOF","data":null}
+I1004 13:24:32.004039    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 824 bytes>
+I1004 13:24:32.004160    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>
+I1004 13:25:32.003102    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 824 bytes>
+I1004 13:25:32.003232    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>
+I1004 13:26:32.005001    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 824 bytes>
+I1004 13:26:32.005117    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>

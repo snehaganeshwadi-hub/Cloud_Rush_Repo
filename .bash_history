@@ -609,3 +609,17 @@ git add .
 git commit -m "initial commit"
 git pull origin main
 node metadata_java_script.mjs
+git add .
+git commit -m "added sqlx"
+git push origin main
+git branch
+git checkout Cloud_Rush_Development
+git push origin main
+git push --help
+ls -lrt
+npm init -y
+ls -lrt
+npm instll csv-parse
+npm install csv-parse
+npm install @dataform/core -- save
+ls -lrt 

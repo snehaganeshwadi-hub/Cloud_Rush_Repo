@@ -1,0 +1,167 @@
+0 verbose cli /usr/local/nvm/versions/node/v22.20.0/bin/node /usr/local/nvm/versions/node/v22.20.0/bin/npm
+1 info using npm@11.6.1
+2 info using node@v22.20.0
+3 silly config load:file:/usr/local/nvm/versions/node/v22.20.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/home/snehaganeshwadi/.npmrc
+5 silly config load:file:/usr/local/nvm/versions/node/v22.20.0/etc/npmrc
+6 verbose title npm install @dataform/core save
+7 verbose argv "install" "@dataform/core" "--" "save"
+8 verbose logfile logs-max:10 dir:/home/snehaganeshwadi/.npm/_logs/2025-10-04T13_26_38_063Z-
+9 verbose logfile /home/snehaganeshwadi/.npm/_logs/2025-10-04T13_26_38_063Z-debug-0.log
+10 silly logfile start cleaning logs, removing 1 files
+11 silly logfile done cleaning log files
+12 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+13 silly idealTree buildDeps
+14 silly fetch manifest @dataform/core@*
+15 silly packumentCache full:https://registry.npmjs.org/@dataform%2fcore cache-miss
+16 http fetch GET 200 https://registry.npmjs.org/@dataform%2fcore 1353ms (cache revalidated)
+17 silly packumentCache full:https://registry.npmjs.org/@dataform%2fcore set size:610013 disposed:false
+18 silly fetch manifest save@*
+19 silly packumentCache full:https://registry.npmjs.org/save cache-miss
+20 http fetch GET 200 https://registry.npmjs.org/save 663ms (cache miss)
+21 silly packumentCache full:https://registry.npmjs.org/save set size:undefined disposed:false
+22 silly placeDep ROOT @dataform/core@3.0.34 OK for: snehaganeshwadi@1.0.0 want: *
+23 silly placeDep ROOT save@2.9.0 OK for: snehaganeshwadi@1.0.0 want: *
+24 silly fetch manifest async@^3.2.2
+25 silly packumentCache full:https://registry.npmjs.org/async cache-miss
+26 silly fetch manifest event-stream@^4.0.1
+27 silly packumentCache full:https://registry.npmjs.org/event-stream cache-miss
+28 http fetch GET 200 https://registry.npmjs.org/async 35ms (cache miss)
+29 silly packumentCache full:https://registry.npmjs.org/async set size:undefined disposed:false
+30 silly fetch manifest lodash.assign@^4.2.0
+31 silly packumentCache full:https://registry.npmjs.org/lodash.assign cache-miss
+32 http fetch GET 200 https://registry.npmjs.org/event-stream 54ms (cache miss)
+33 silly packumentCache full:https://registry.npmjs.org/event-stream set size:undefined disposed:false
+34 silly fetch manifest mingo@^6.1.0
+35 silly packumentCache full:https://registry.npmjs.org/mingo cache-miss
+36 http fetch GET 200 https://registry.npmjs.org/lodash.assign 27ms (cache miss)
+37 silly packumentCache full:https://registry.npmjs.org/lodash.assign set size:undefined disposed:false
+38 http fetch GET 200 https://registry.npmjs.org/mingo 649ms (cache miss)
+39 silly packumentCache full:https://registry.npmjs.org/mingo set size:undefined disposed:false
+40 silly placeDep ROOT async@3.2.6 OK for: save@2.9.0 want: ^3.2.2
+41 silly placeDep ROOT event-stream@4.0.1 OK for: save@2.9.0 want: ^4.0.1
+42 silly placeDep ROOT lodash.assign@4.2.0 OK for: save@2.9.0 want: ^4.2.0
+43 silly placeDep ROOT mingo@6.7.0 OK for: save@2.9.0 want: ^6.1.0
+44 silly fetch manifest duplexer@^0.1.1
+45 silly packumentCache full:https://registry.npmjs.org/duplexer cache-miss
+46 silly fetch manifest from@^0.1.7
+47 silly packumentCache full:https://registry.npmjs.org/from cache-miss
+48 http fetch GET 200 https://registry.npmjs.org/from 40ms (cache miss)
+49 silly packumentCache full:https://registry.npmjs.org/from set size:undefined disposed:false
+50 silly fetch manifest map-stream@0.0.7
+51 silly packumentCache full:https://registry.npmjs.org/map-stream cache-miss
+52 http fetch GET 200 https://registry.npmjs.org/map-stream 29ms (cache miss)
+53 silly packumentCache full:https://registry.npmjs.org/map-stream set size:undefined disposed:false
+54 silly fetch manifest pause-stream@^0.0.11
+55 silly packumentCache full:https://registry.npmjs.org/pause-stream cache-miss
+56 http fetch GET 200 https://registry.npmjs.org/pause-stream 34ms (cache miss)
+57 silly packumentCache full:https://registry.npmjs.org/pause-stream set size:undefined disposed:false
+58 silly fetch manifest split@^1.0.1
+59 silly packumentCache full:https://registry.npmjs.org/split cache-miss
+60 http fetch GET 200 https://registry.npmjs.org/split 33ms (cache miss)
+61 silly packumentCache full:https://registry.npmjs.org/split set size:undefined disposed:false
+62 silly fetch manifest stream-combiner@^0.2.2
+63 silly packumentCache full:https://registry.npmjs.org/stream-combiner cache-miss
+64 http fetch GET 200 https://registry.npmjs.org/stream-combiner 53ms (cache miss)
+65 silly packumentCache full:https://registry.npmjs.org/stream-combiner set size:undefined disposed:false
+66 silly fetch manifest through@^2.3.8
+67 silly packumentCache full:https://registry.npmjs.org/through cache-miss
+68 http fetch GET 200 https://registry.npmjs.org/through 44ms (cache miss)
+69 silly packumentCache full:https://registry.npmjs.org/through set size:undefined disposed:false
+70 http fetch GET 200 https://registry.npmjs.org/duplexer 655ms (cache miss)
+71 silly packumentCache full:https://registry.npmjs.org/duplexer set size:undefined disposed:false
+72 silly placeDep ROOT duplexer@0.1.2 OK for: event-stream@4.0.1 want: ^0.1.1
+73 silly placeDep ROOT from@0.1.7 OK for: event-stream@4.0.1 want: ^0.1.7
+74 silly placeDep ROOT map-stream@0.0.7 OK for: event-stream@4.0.1 want: 0.0.7
+75 silly placeDep ROOT pause-stream@0.0.11 OK for: event-stream@4.0.1 want: ^0.0.11
+76 silly placeDep ROOT split@1.0.1 OK for: event-stream@4.0.1 want: ^1.0.1
+77 silly placeDep ROOT stream-combiner@0.2.2 OK for: event-stream@4.0.1 want: ^0.2.2
+78 silly placeDep ROOT through@2.3.8 OK for: event-stream@4.0.1 want: ^2.3.8
+79 silly fetch manifest through@~2.3
+80 silly packumentCache full:https://registry.npmjs.org/through cache-miss
+81 silly fetch manifest through@2
+82 silly packumentCache full:https://registry.npmjs.org/through cache-miss
+83 http cache https://registry.npmjs.org/through 7ms (cache hit)
+84 silly packumentCache full:https://registry.npmjs.org/through set size:38387 disposed:false
+85 silly fetch manifest through@~2.3.4
+86 silly packumentCache full:https://registry.npmjs.org/through cache-hit
+87 http cache https://registry.npmjs.org/through 8ms (cache hit)
+88 silly packumentCache full:https://registry.npmjs.org/through set size:38387 disposed:false
+89 silly packumentCache full:https://registry.npmjs.org/through dispose
+90 silly reify moves {}
+91 silly audit bulk request {
+91 silly audit   'csv-parse': [ '6.1.0' ],
+91 silly audit   '@dataform/core': [ '3.0.34' ],
+91 silly audit   save: [ '2.9.0' ],
+91 silly audit   async: [ '3.2.6' ],
+91 silly audit   'event-stream': [ '4.0.1' ],
+91 silly audit   'lodash.assign': [ '4.2.0' ],
+91 silly audit   mingo: [ '6.7.0' ],
+91 silly audit   duplexer: [ '0.1.2' ],
+91 silly audit   from: [ '0.1.7' ],
+91 silly audit   'map-stream': [ '0.0.7' ],
+91 silly audit   'pause-stream': [ '0.0.11' ],
+91 silly audit   split: [ '1.0.1' ],
+91 silly audit   'stream-combiner': [ '0.2.2' ],
+91 silly audit   through: [ '2.3.8' ]
+91 silly audit }
+92 http cache stream-combiner@https://registry.npmjs.org/stream-combiner/-/stream-combiner-0.2.2.tgz 0ms (cache hit)
+93 http cache map-stream@https://registry.npmjs.org/map-stream/-/map-stream-0.0.7.tgz 0ms (cache hit)
+94 http cache pause-stream@https://registry.npmjs.org/pause-stream/-/pause-stream-0.0.11.tgz 0ms (cache hit)
+95 http cache split@https://registry.npmjs.org/split/-/split-1.0.1.tgz 0ms (cache hit)
+96 http cache duplexer@https://registry.npmjs.org/duplexer/-/duplexer-0.1.2.tgz 0ms (cache hit)
+97 http cache from@https://registry.npmjs.org/from/-/from-0.1.7.tgz 0ms (cache hit)
+98 http cache mingo@https://registry.npmjs.org/mingo/-/mingo-6.7.0.tgz 0ms (cache hit)
+99 http cache through@https://registry.npmjs.org/through/-/through-2.3.8.tgz 0ms (cache hit)
+100 http cache event-stream@https://registry.npmjs.org/event-stream/-/event-stream-4.0.1.tgz 0ms (cache hit)
+101 http cache lodash.assign@https://registry.npmjs.org/lodash.assign/-/lodash.assign-4.2.0.tgz 0ms (cache hit)
+102 http cache async@https://registry.npmjs.org/async/-/async-3.2.6.tgz 0ms (cache hit)
+103 http cache @dataform/core@https://registry.npmjs.org/@dataform/core/-/core-3.0.34.tgz 0ms (cache hit)
+104 http cache save@https://registry.npmjs.org/save/-/save-2.9.0.tgz 0ms (cache hit)
+105 silly tarball no local data for stream-combiner@https://registry.npmjs.org/stream-combiner/-/stream-combiner-0.2.2.tgz. Extracting by manifest.
+106 silly tarball no local data for map-stream@https://registry.npmjs.org/map-stream/-/map-stream-0.0.7.tgz. Extracting by manifest.
+107 silly tarball no local data for pause-stream@https://registry.npmjs.org/pause-stream/-/pause-stream-0.0.11.tgz. Extracting by manifest.
+108 silly tarball no local data for split@https://registry.npmjs.org/split/-/split-1.0.1.tgz. Extracting by manifest.
+109 silly tarball no local data for duplexer@https://registry.npmjs.org/duplexer/-/duplexer-0.1.2.tgz. Extracting by manifest.
+110 silly tarball no local data for from@https://registry.npmjs.org/from/-/from-0.1.7.tgz. Extracting by manifest.
+111 silly tarball no local data for mingo@https://registry.npmjs.org/mingo/-/mingo-6.7.0.tgz. Extracting by manifest.
+112 silly tarball no local data for through@https://registry.npmjs.org/through/-/through-2.3.8.tgz. Extracting by manifest.
+113 silly tarball no local data for event-stream@https://registry.npmjs.org/event-stream/-/event-stream-4.0.1.tgz. Extracting by manifest.
+114 silly tarball no local data for lodash.assign@https://registry.npmjs.org/lodash.assign/-/lodash.assign-4.2.0.tgz. Extracting by manifest.
+115 silly tarball no local data for async@https://registry.npmjs.org/async/-/async-3.2.6.tgz. Extracting by manifest.
+116 silly tarball no local data for @dataform/core@https://registry.npmjs.org/@dataform/core/-/core-3.0.34.tgz. Extracting by manifest.
+117 silly tarball no local data for save@https://registry.npmjs.org/save/-/save-2.9.0.tgz. Extracting by manifest.
+118 http fetch GET 200 https://registry.npmjs.org/stream-combiner/-/stream-combiner-0.2.2.tgz 97ms (cache miss)
+119 http fetch GET 200 https://registry.npmjs.org/map-stream/-/map-stream-0.0.7.tgz 98ms (cache miss)
+120 http fetch GET 200 https://registry.npmjs.org/duplexer/-/duplexer-0.1.2.tgz 159ms (cache miss)
+121 http fetch GET 200 https://registry.npmjs.org/from/-/from-0.1.7.tgz 161ms (cache miss)
+122 http fetch GET 200 https://registry.npmjs.org/lodash.assign/-/lodash.assign-4.2.0.tgz 163ms (cache miss)
+123 http fetch GET 200 https://registry.npmjs.org/pause-stream/-/pause-stream-0.0.11.tgz 168ms (cache miss)
+124 http fetch GET 200 https://registry.npmjs.org/through/-/through-2.3.8.tgz 167ms (cache miss)
+125 http fetch GET 200 https://registry.npmjs.org/split/-/split-1.0.1.tgz 171ms (cache miss)
+126 http fetch GET 200 https://registry.npmjs.org/save/-/save-2.9.0.tgz 189ms (cache miss)
+127 http fetch GET 200 https://registry.npmjs.org/event-stream/-/event-stream-4.0.1.tgz 201ms (cache miss)
+128 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 241ms
+129 silly audit report {}
+130 http fetch GET 200 https://registry.npmjs.org/async/-/async-3.2.6.tgz 264ms (cache miss)
+131 http fetch GET 200 https://registry.npmjs.org/@dataform/core/-/core-3.0.34.tgz 845ms (cache miss)
+132 http fetch GET 200 https://registry.npmjs.org/mingo/-/mingo-6.7.0.tgz 854ms (cache miss)
+133 silly ADD node_modules/through
+134 silly ADD node_modules/stream-combiner
+135 silly ADD node_modules/split
+136 silly ADD node_modules/pause-stream
+137 silly ADD node_modules/map-stream
+138 silly ADD node_modules/from
+139 silly ADD node_modules/duplexer
+140 silly ADD node_modules/mingo
+141 silly ADD node_modules/lodash.assign
+142 silly ADD node_modules/event-stream
+143 silly ADD node_modules/async
+144 silly ADD node_modules/save
+145 silly ADD node_modules/@dataform/core
+146 verbose cwd /home/snehaganeshwadi
+147 verbose os Linux 6.6.105+
+148 verbose node v22.20.0
+149 verbose npm  v11.6.1
+150 verbose exit 0
+151 info ok

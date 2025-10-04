@@ -1,0 +1,37 @@
+0 verbose cli /usr/local/nvm/versions/node/v22.20.0/bin/node /usr/local/nvm/versions/node/v22.20.0/bin/npm
+1 info using npm@11.6.1
+2 info using node@v22.20.0
+3 silly config load:file:/usr/local/nvm/versions/node/v22.20.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/home/snehaganeshwadi/.npmrc
+5 silly config load:file:/usr/local/nvm/versions/node/v22.20.0/etc/npmrc
+6 verbose title npm init
+7 verbose argv "init" "--yes"
+8 verbose logfile logs-max:10 dir:/home/snehaganeshwadi/.npm/_logs/2025-10-04T13_24_27_671Z-
+9 verbose logfile /home/snehaganeshwadi/.npm/_logs/2025-10-04T13_24_27_671Z-debug-0.log
+10 silly logfile start cleaning logs, removing 1 files
+11 silly logfile done cleaning log files
+12 silly package data {
+12 silly package data   name: 'snehaganeshwadi',
+12 silly package data   version: '1.0.0',
+12 silly package data   description: '',
+12 silly package data   main: 'metadata_java_script.js',
+12 silly package data   scripts: { test: 'echo "Error: no test specified" && exit 1' },
+12 silly package data   repository: {
+12 silly package data     type: 'git',
+12 silly package data     url: 'git+https://github.com/snehaganeshwadi-hub/Cloud_Rush_Repo.git'
+12 silly package data   },
+12 silly package data   keywords: [],
+12 silly package data   author: '',
+12 silly package data   license: 'ISC',
+12 silly package data   type: 'commonjs',
+12 silly package data   bugs: {
+12 silly package data     url: 'https://github.com/snehaganeshwadi-hub/Cloud_Rush_Repo/issues'
+12 silly package data   },
+12 silly package data   homepage: 'https://github.com/snehaganeshwadi-hub/Cloud_Rush_Repo#readme'
+12 silly package data }
+13 verbose cwd /home/snehaganeshwadi
+14 verbose os Linux 6.6.105+
+15 verbose node v22.20.0
+16 verbose npm  v11.6.1
+17 verbose exit 0
+18 info ok

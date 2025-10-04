@@ -1,0 +1,26 @@
+{
+  "name": "snehaganeshwadi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "metadata_java_script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/snehaganeshwadi-hub/Cloud_Rush_Repo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/snehaganeshwadi-hub/Cloud_Rush_Repo/issues"
+  },
+  "homepage": "https://github.com/snehaganeshwadi-hub/Cloud_Rush_Repo#readme",
+  "dependencies": {
+    "@dataform/core": "^3.0.34",
+    "csv-parse": "^6.1.0",
+    "save": "^2.9.0"
+  }
+}
