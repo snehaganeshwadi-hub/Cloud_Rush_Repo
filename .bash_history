@@ -560,3 +560,23 @@ git init
 git branch -m main
 git status 
 git branch
+git add .
+git status
+git commit -m "initial commit"
+git config --global user.email "snehaganeshwadi@gmail.com"
+git config --global user.name "snehaganeshwadi"
+git commit -m "initial commit"
+git log 
+git pull origin 
+git pull
+git remote add origin https://github.com/snehaganeshwadi-hub/Cloud_Rush_Repo.git
+git pull origin 
+ls -lrt 
+cd definitions
+ls -lrt 
+ls -lart 
+cd ..
+cd auto_generated
+cd definitions/auto_generated
+ls -lrt 
+cd ..
