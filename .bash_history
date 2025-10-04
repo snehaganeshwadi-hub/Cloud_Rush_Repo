@@ -599,3 +599,9 @@ git pull origin main
 git branch 
 git checkout Cloud_Rush_Development
 git add .
+git commit -m "init request"
+git push origin main
+git push -f origin main
+git status
+git log
+ls -lrt
