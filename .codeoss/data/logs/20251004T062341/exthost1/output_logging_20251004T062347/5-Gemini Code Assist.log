@@ -1835,3 +1835,7 @@ I1004 13:12:31.992321    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sen
 I1004 13:12:31.992438    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>
 I1004 13:13:31.992580    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 824 bytes>
 I1004 13:13:31.992701    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>
+I1004 13:14:31.996035    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 824 bytes>
+I1004 13:14:31.996163    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>
+I1004 13:15:31.994137    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 824 bytes>
+I1004 13:15:31.994254    5318 conn_opt.go:53] jsonrpc2: --> notif: telemetry/sendEvents: <truncated 722 bytes>

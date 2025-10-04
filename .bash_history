@@ -605,3 +605,7 @@ git push -f origin main
 git status
 git log
 ls -lrt
+git add .
+git commit -m "initial commit"
+git pull origin main
+node metadata_java_script.mjs
