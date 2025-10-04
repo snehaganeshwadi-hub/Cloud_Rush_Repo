@@ -585,3 +585,17 @@ git commit -m "add generated hub sqlx files"
 git push origin Cloud_Rush_Development
 git branch
 git checkout Cloud_Rush_Development
+git add .
+git commit -m "init request"
+git checkout Cloud_Rush_Development
+git checkin Cloud_Rush_Development
+git pull origin Cloud_Rush_Development
+git config pull.rebase false
+git branch
+git checkout Cloud_Rush_Development
+git branch 
+git checkout Cloud_Rush_Development
+git pull origin main 
+git branch 
+git checkout Cloud_Rush_Development
+git add .

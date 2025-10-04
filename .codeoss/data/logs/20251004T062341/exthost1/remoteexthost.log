@@ -2995,3 +2995,102 @@
     at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:73:13)
     at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
     at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13
+2025-10-04 12:52:31.976 [error] Error: unauthorized.
+    at e.Authorization.authorize (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloud-shell/dist/extension.js:1:6008)
+    at Ab.resp [as h] (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:112:41564)
+    at t.CloudShellTheiaAuth.promptForOrGetAuth (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:86:11)
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:70:7)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13 cloudshell.authorize {"value":"google.cloud-shell","_lower":"google.cloud-shell"}
+2025-10-04 12:52:32.977 [error] Error: Error calling Cloud Shell Theia Authorization. unauthorized.
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:73:13)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13
+2025-10-04 12:53:31.974 [error] Error: unauthorized.
+    at e.Authorization.authorize (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloud-shell/dist/extension.js:1:6008)
+    at Ab.resp [as h] (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:112:41564)
+    at t.CloudShellTheiaAuth.promptForOrGetAuth (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:86:11)
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:70:7)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13 cloudshell.authorize {"value":"google.cloud-shell","_lower":"google.cloud-shell"}
+2025-10-04 12:53:32.975 [error] Error: Error calling Cloud Shell Theia Authorization. unauthorized.
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:73:13)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13
+2025-10-04 12:54:31.972 [error] Error: unauthorized.
+    at e.Authorization.authorize (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloud-shell/dist/extension.js:1:6008)
+    at Ab.resp [as h] (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:112:41564)
+    at t.CloudShellTheiaAuth.promptForOrGetAuth (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:86:11)
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:70:7)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13 cloudshell.authorize {"value":"google.cloud-shell","_lower":"google.cloud-shell"}
+2025-10-04 12:54:32.972 [error] Error: Error calling Cloud Shell Theia Authorization. unauthorized.
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:73:13)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13
+2025-10-04 12:55:31.973 [error] Error: unauthorized.
+    at e.Authorization.authorize (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloud-shell/dist/extension.js:1:6008)
+    at Ab.resp [as h] (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:112:41564)
+    at t.CloudShellTheiaAuth.promptForOrGetAuth (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:86:11)
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:70:7)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13 cloudshell.authorize {"value":"google.cloud-shell","_lower":"google.cloud-shell"}
+2025-10-04 12:55:32.976 [error] Error: Error calling Cloud Shell Theia Authorization. unauthorized.
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:73:13)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13
+2025-10-04 12:56:31.977 [error] Error: unauthorized.
+    at e.Authorization.authorize (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloud-shell/dist/extension.js:1:6008)
+    at Ab.resp [as h] (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:112:41564)
+    at t.CloudShellTheiaAuth.promptForOrGetAuth (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:86:11)
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:70:7)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13 cloudshell.authorize {"value":"google.cloud-shell","_lower":"google.cloud-shell"}
+2025-10-04 12:56:32.978 [error] Error: Error calling Cloud Shell Theia Authorization. unauthorized.
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:73:13)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13
+2025-10-04 12:57:31.978 [error] Error: unauthorized.
+    at e.Authorization.authorize (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloud-shell/dist/extension.js:1:6008)
+    at Ab.resp [as h] (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:112:41564)
+    at t.CloudShellTheiaAuth.promptForOrGetAuth (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:86:11)
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:70:7)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13 cloudshell.authorize {"value":"google.cloud-shell","_lower":"google.cloud-shell"}
+2025-10-04 12:57:32.979 [error] Error: Error calling Cloud Shell Theia Authorization. unauthorized.
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:73:13)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13
+2025-10-04 12:58:31.979 [error] Error: unauthorized.
+    at e.Authorization.authorize (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloud-shell/dist/extension.js:1:6008)
+    at Ab.resp [as h] (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:112:41564)
+    at t.CloudShellTheiaAuth.promptForOrGetAuth (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:86:11)
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:70:7)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13 cloudshell.authorize {"value":"google.cloud-shell","_lower":"google.cloud-shell"}
+2025-10-04 12:58:32.979 [error] Error: Error calling Cloud Shell Theia Authorization. unauthorized.
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:73:13)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13
+2025-10-04 12:59:31.980 [error] Error: unauthorized.
+    at e.Authorization.authorize (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloud-shell/dist/extension.js:1:6008)
+    at Ab.resp [as h] (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:112:41564)
+    at t.CloudShellTheiaAuth.promptForOrGetAuth (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:86:11)
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:70:7)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13 cloudshell.authorize {"value":"google.cloud-shell","_lower":"google.cloud-shell"}
+2025-10-04 12:59:32.982 [error] Error: Error calling Cloud Shell Theia Authorization. unauthorized.
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:73:13)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13
+2025-10-04 13:00:31.981 [error] Error: unauthorized.
+    at e.Authorization.authorize (/google/devshell/editor/code-oss-for-cloud-shell/extensions/cloud-shell/dist/extension.js:1:6008)
+    at Ab.resp [as h] (file:///google/devshell/editor/code-oss-for-cloud-shell/out/vs/workbench/api/node/extensionHostProcess.js:112:41564)
+    at t.CloudShellTheiaAuth.promptForOrGetAuth (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:86:11)
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:70:7)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13 cloudshell.authorize {"value":"google.cloud-shell","_lower":"google.cloud-shell"}
+2025-10-04 13:00:32.982 [error] Error: Error calling Cloud Shell Theia Authorization. unauthorized.
+    at t.CloudShellTheiaAuth.validCache [as runAuthorization] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/cloudshell/authorization.ts:73:13)
+    at t.CloudShellAuthProvider.accessToken [as getAccessToken] (/google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/common/packages/auth/cloudshell_auth_provider.ts:39:35)
+    at /google/devshell/editor/code-oss-for-cloud-shell/extensions/geminicodeassist/dist/webpack:/gemini_code_assist/src/ai-companion/tier_client.ts:369:13
