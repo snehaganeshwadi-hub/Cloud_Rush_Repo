@@ -1,44 +1,17 @@
 
 config {
- type: "table",
-  tags: ["hub"],
+  type: "table",
+  tags: ["satellite"],
+  schema: "Row_Vault",
   partitionBy: "load_dts",
-  clusterBy: ["FlightID"]
+  clusterBy: ["FlightID_bk"]
 }
-// SCD Type 2 History Tracking
-// Track changes in descriptive attributes
-with source_data as (
- SELECT
+ 
+SELECT
   TO_HEX(SHA256(CAST(FlightID AS STRING))) AS FlightID_hk,
   FlightID AS FlightID_bk,
+  FlightNumber,ArrivalDateTime,ScheduledDepartureDateTime,ActualDepartureDateTime,OriginAirportCode,DestinationAirportCode,SeatCapacity,AvailableSeats,
   CURRENT_DATE() AS load_dts,
-  'Airindia_Flight_Details' as record_source
+  'Airindia_Flight_Details' AS record_source
 FROM
-  ${ref('Airindia_Flight_Details')}
-),
-scd2 as (
- select
-   s.FlightID,
-   s.FlightNumber, s.ArrivalDateTime, s.ScheduledDepartureDateTime, s.ActualDepartureDateTime,
-   s.load_dts,
-   s.record_source,
-   case
-     when t.FlightID is null then true
-     when s.FlightNumber <> t.FlightNumber or s.ArrivalDateTime <> t.ArrivalDateTime or s.ScheduledDepartureDateTime <> t.ScheduledDepartureDateTime or s.ActualDepartureDateTime <> t.ActualDepartureDateTime then true
-     else false
-   end as is_changed
- from source_data s
- left join Sat_AI_flight_satellite t
- on s.FlightID = t.FlightID
- and t.is_current = true
-)
-select
- FlightID,
- FlightNumber,ArrivalDateTime,ScheduledDepartureDateTime,ActualDepartureDateTime,
- load_dts,
- record_source,
- case when is_changed then true else false end as is_current,
- case when is_changed then load_dts else null end as effective_start_date,
- null as effective_end_date
-from scd2
-   
+  ${ref("Airindia_Flight_Details")}

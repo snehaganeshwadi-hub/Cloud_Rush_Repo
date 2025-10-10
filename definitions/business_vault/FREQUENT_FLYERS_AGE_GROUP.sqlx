@@ -1,0 +1,101 @@
+--2)FREQUENT_FLYERS_AGE_GROUP:
+
+config {
+  type: "table",
+  schema: "Business_Vault",
+  tags: ["frequent_flyers_age_group"]
+}
+
+--FREQUENT_FLYERS_AGE_GROUP
+SELECT
+	PassengerData.PassengerID_bk,
+  PassengerData.FirstName,
+  PassengerData.LastName,
+  PassengerData.DOB,
+  PassengerData.Age,
+  AgeGroup.AgeGroupID,
+  AgeGroup.lowerLimit AS AgeGroup_LowerLimit,
+  AgeGroup.UpperLimit AS AgeGroup_UpperLimit,
+  COUNT(DISTINCT FlightLinks.FlightID_bk) AS NumberOfFlights
+FROM (
+  SELECT
+    PassengerID_bk,
+    FirstName,
+    LastName,
+    DOB,
+    DATE_DIFF(CURRENT_DATE(), DOB, YEAR) AS Age,
+    record_source
+  FROM ${ref("Sat_SJ_passenger_satellite")}
+  WHERE Email is not null
+    --`cloud-rush-473406`.`Row_Vault`.`Sat_SJ_passenger_satellite`
+  UNION ALL
+  SELECT
+    PassengerID_bk,
+    FirstName,
+    LastName,
+    DOB,
+    DATE_DIFF(CURRENT_DATE(), DOB, YEAR) AS Age,
+    record_source
+  FROM ${ref("Sat_AI_passenger_satellite")} WHERE Email is not null ) AS PassengerData
+    --`cloud-rush-473406`.`Row_Vault`.`Sat_AI_passenger_satellite` ) AS PassengerData
+INNER JOIN (
+  SELECT
+    PassengerID_bk,
+    FlightID_bk,
+    record_source
+  FROM ${ref("Link_SJ_passenger_booking_flight")}
+    --`cloud-rush-473406`.`Row_Vault`.`Link_SJ_passenger_booking_flight`
+  UNION ALL
+  SELECT
+    PassengerID_bk,
+    FlightID_bk,
+    record_source
+  FROM ${ref("Link_AI_passenger_booking_flight")} ) AS FlightLinks
+    --`cloud-rush-473406`.`Row_Vault`.`Link_AI_passenger_booking_flight` ) AS FlightLinks
+ON
+  PassengerData.PassengerID_bk = FlightLinks.PassengerID_bk
+INNER JOIN (
+  SELECT
+    AgeGroupID,
+    lowerLimit,
+    UpperLimit,
+    'SpiceJet_AI_Passenger_Details' AS record_source  -- Assuming SpiceJet passenger details map to SpiceJet age groups
+  FROM ${ref("SpiceJet_Age_Group")}
+    --`cloud-rush-473406`.`Cloud_Rush_dataset`.`SpiceJet_Age_Group`
+  WHERE
+    -- Filter for valid age group definitions based on the validity column
+    PARSE_DATE( '%d-%m-%Y', SUBSTR(Validity, STRPOS(Validity, 'from ') + 5, 10)) <= CURRENT_DATE()
+    AND ( LOWER(Validity) LIKE '%current date%'
+      OR PARSE_DATE( '%d-%m-%Y', SUBSTR(Validity, STRPOS(Validity, 'till ') + 5, 10)) >= CURRENT_DATE())
+  UNION ALL
+  SELECT
+    AgeGroupID,
+    lowerLimit,
+    UpperLimit,
+    'Airindia_AI_Passenger_Details' AS record_source  -- Assuming Airindia passenger details map to Airindia age groups
+  FROM ${ref("Airindia_Age_Group")}
+    --`cloud-rush-473406`.`Cloud_Rush_dataset`.`Airindia_Age_Group`
+  WHERE
+    -- Filter for valid age group definitions based on the validity column
+    PARSE_DATE( '%d-%m-%Y', SUBSTR(Validity, STRPOS(Validity, 'from ') + 5, 10)) <= CURRENT_DATE()
+    AND ( LOWER(Validity) LIKE '%current date%'
+      OR PARSE_DATE( '%d-%m-%Y', SUBSTR(Validity, STRPOS(Validity, 'till ') + 5, 10)) >= CURRENT_DATE()) ) AS AgeGroup
+ON
+  PassengerData.Age >= AgeGroup.lowerLimit
+  AND PassengerData.Age <= AgeGroup.UpperLimit
+  AND ( ( PassengerData.record_source LIKE '%SpiceJet%'
+      AND AgeGroup.record_source LIKE '%SpiceJet%')
+    OR ( PassengerData.record_source LIKE '%Airindia%'
+      AND AgeGroup.record_source LIKE '%Airindia%'))
+GROUP BY
+PassengerData.PassengerID_bk,
+  PassengerData.FirstName,
+  PassengerData.LastName,
+  PassengerData.DOB,
+  PassengerData.Age,
+  AgeGroup.AgeGroupID,
+  AgeGroup.lowerLimit,
+  AgeGroup.UpperLimit
+ORDER BY
+  NumberOfFlights DESC,
+  PassengerData.Age

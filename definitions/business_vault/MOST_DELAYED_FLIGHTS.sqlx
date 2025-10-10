@@ -1,0 +1,43 @@
+--4)MOST_DELAYED_FLIGHTS:
+
+config {
+  type: "table",
+  schema: "Business_Vault",
+  tags: ["most_delayed_flights"]
+}
+
+--MOST_DELAYED_FLIGHTS:
+
+SELECT
+  f.FlightID_bk,
+  f.FlightNumber,
+  f.REC_SRC,
+  f.SeatCapacity,
+  f.AvailableSeats,
+  (TIMESTAMP_DIFF(f.ActualDepartureDateTime, f.ScheduledDepartureDateTime,HOUR)) AS delay_hours
+FROM (
+  SELECT 
+    FlightID_bk, 
+    FlightNumber, 
+    ScheduledDepartureDateTime, 
+    ActualDepartureDateTime, 
+    SeatCapacity,
+    AvailableSeats,
+    'AI' AS REC_SRC 
+  FROM ${ref("Sat_AI_flight_satellite")}
+  --`cloud-rush-473406.Row_Vault.Sat_AI_flight_satellite`
+  UNION ALL
+  SELECT 
+    FlightID_bk, 
+    FlightNumber, 
+    ScheduledDepartureDateTime, 
+    ActualDepartureDateTime,
+    SeatCapacity, 
+    AvailableSeats,
+    'SJ' AS REC_SRC 
+  FROM ${ref("Sat_SJ_flight_satellite")}
+  --`cloud-rush-473406.Row_Vault.Sat_SJ_flight_satellite`
+) f
+GROUP BY f.FlightID_bk, f.FlightNumber, f.REC_SRC,f.SeatCapacity,
+  f.AvailableSeats,f.ActualDepartureDateTime, f.ScheduledDepartureDateTime
+ORDER BY delay_hours DESC

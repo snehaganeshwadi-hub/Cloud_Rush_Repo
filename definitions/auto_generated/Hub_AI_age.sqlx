@@ -1,0 +1,16 @@
+
+config {
+  type: "table",
+  tags: ["hub"],
+  schema: "Row_Vault",
+  partitionBy: "load_dts",
+  clusterBy: ["AgeGroupID_bk"]
+}
+ 
+SELECT
+  TO_HEX(SHA256(CAST(AgeGroupID AS STRING))) AS AgeGroupID_hk,
+  AgeGroupID AS AgeGroupID_bk,
+  CURRENT_DATE() AS load_dts,
+  'Airindia_Age_Group' AS record_source
+FROM
+  ${ref("Airindia_Age_Group")}

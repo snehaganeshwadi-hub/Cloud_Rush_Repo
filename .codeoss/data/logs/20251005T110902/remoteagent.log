@@ -1,0 +1,8 @@
+2025-10-05 11:09:03.132 [info] 
+
+
+
+
+2025-10-05 11:09:03.148 [info] Extension host agent started.
+2025-10-05 11:09:03.780 [error] [127.0.0.1][a05e76b0][ManagementConnection] Unknown reconnection token (never seen).
+2025-10-05 11:09:03.990 [error] [127.0.0.1][46e426c3][ExtensionHostConnection] Unknown reconnection token (never seen).

@@ -1,0 +1,42 @@
+0 verbose cli /usr/local/nvm/versions/node/v22.20.0/bin/node /usr/local/nvm/versions/node/v22.20.0/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@11.6.1
+2 info using node@v22.20.0
+3 silly config load:file:/usr/local/nvm/versions/node/v22.20.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/home/snehaganeshwadi/.npmrc
+5 silly config load:file:/usr/local/nvm/versions/node/v22.20.0/etc/npmrc
+6 verbose title npm exec dataform run
+7 verbose argv "exec" "--" "dataform" "run"
+8 verbose logfile logs-max:10 dir:/home/snehaganeshwadi/.npm/_logs/2025-10-09T12_02_48_058Z-
+9 verbose logfile /home/snehaganeshwadi/.npm/_logs/2025-10-09T12_02_48_058Z-debug-0.log
+10 silly logfile start cleaning logs, removing 5 files
+11 silly packumentCache heap:2197815296 maxSize:549453824 maxEntrySize:274726912
+12 silly logfile done cleaning log files
+13 http fetch GET 404 https://registry.npmjs.org/dataform 732ms (cache skip)
+14 http fetch GET 404 https://registry.npmjs.org/dataform 674ms (cache skip)
+15 verbose stack HttpErrorGeneral: 404 Not Found - GET https://registry.npmjs.org/dataform - Not found
+15 verbose stack     at /usr/local/nvm/versions/node/v22.20.0/lib/node_modules/npm/node_modules/npm-registry-fetch/lib/check-response.js:103:15
+15 verbose stack     at process.processTicksAndRejections (node:internal/process/task_queues:105:5)
+15 verbose stack     at async RegistryFetcher.packument (/usr/local/nvm/versions/node/v22.20.0/lib/node_modules/npm/node_modules/pacote/lib/registry.js:90:19)
+15 verbose stack     at async RegistryFetcher.manifest (/usr/local/nvm/versions/node/v22.20.0/lib/node_modules/npm/node_modules/pacote/lib/registry.js:128:23)
+15 verbose stack     at async getManifest (/usr/local/nvm/versions/node/v22.20.0/lib/node_modules/npm/node_modules/libnpmexec/lib/index.js:29:22)
+15 verbose stack     at async missingFromTree (/usr/local/nvm/versions/node/v22.20.0/lib/node_modules/npm/node_modules/libnpmexec/lib/index.js:64:22)
+15 verbose stack     at async /usr/local/nvm/versions/node/v22.20.0/lib/node_modules/npm/node_modules/libnpmexec/lib/index.js:186:32
+15 verbose stack     at async Promise.all (index 0)
+15 verbose stack     at async exec (/usr/local/nvm/versions/node/v22.20.0/lib/node_modules/npm/node_modules/libnpmexec/lib/index.js:184:3)
+15 verbose stack     at async Npm.exec (/usr/local/nvm/versions/node/v22.20.0/lib/node_modules/npm/lib/npm.js:208:9)
+16 verbose statusCode 404
+17 verbose pkgid dataform@*
+18 error code E404
+19 error 404 Not Found - GET https://registry.npmjs.org/dataform - Not found
+20 error 404
+21 error 404  The requested resource 'dataform@*' could not be found or you do not have permission to access it.
+22 error 404
+23 error 404 Note that you can also install from a
+24 error 404 tarball, folder, http url, or git url.
+25 verbose cwd /home/snehaganeshwadi
+26 verbose os Linux 6.6.105+
+27 verbose node v22.20.0
+28 verbose npm  v11.6.1
+29 verbose exit 1
+30 verbose code 1
+31 error A complete log of this run can be found in: /home/snehaganeshwadi/.npm/_logs/2025-10-09T12_02_48_058Z-debug-0.log

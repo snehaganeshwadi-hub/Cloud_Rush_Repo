@@ -1,0 +1,17 @@
+
+config {
+  type: "table",
+  tags: ["satellite"],
+  schema: "Row_Vault",
+  partitionBy: "load_dts",
+  clusterBy: ["BookingID_bk"]
+}
+ 
+SELECT
+  TO_HEX(SHA256(CAST(BookingID AS STRING))) AS BookingID_hk,
+  BookingID AS BookingID_bk,
+  FlightID,PaymentID,Status,BookingDate,SeatNumber,SeatClass,CreatedDateTime,LastupdateDateTime,
+  CURRENT_DATE() AS load_dts,
+  'SpiceJet_Booking_Details' AS record_source
+FROM
+  ${ref("SpiceJet_Booking_Details")}

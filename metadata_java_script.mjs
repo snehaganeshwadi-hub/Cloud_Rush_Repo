@@ -36,14 +36,19 @@ async function parseCSV(filePath) {
 // Generate SQLX for Hub, Link, Satellite with SCD Type 2
 function generateSQLX(row) {
  const { table_name, table_type, business_key, descriptive_fields, source_table } = row;
+  // Split composite keys (comma-separated)
+ const keys = business_key.split("_").map(k => k.trim());
+ const key_select = keys.join("_ ");
+ const key_join = keys.map(k => `s.${k} = t.${k}`).join(" and ");
  let sql = "";
  if (table_type === "hub") {
    sql = `
 config {
  type: "table",
   tags: ["hub"],
+  schema: "Row_Vault",
   partitionBy: "load_dts",
-  clusterBy: ["${business_key}"]
+  clusterBy: ["${business_key}_bk"]
 }
 SELECT
   TO_HEX(SHA256(CAST(${business_key} AS STRING))) AS ${business_key}_hk,
@@ -51,74 +56,107 @@ SELECT
   CURRENT_DATE() AS load_dts,
   '${source_table}' as record_source
 FROM
-  \${ref('${source_table}')}
+  \${ref("${source_table}")}
    `;
  }
- else if (table_type === "link") {
+ 
+else if (table_type === "link") {
+  const linkKeys = business_key.split("|").map(k => k.trim());
+  const concatExpr = `CONCAT(${linkKeys.map(k => `${k}`).join(", ")})`;
+  const hkName = `${linkKeys.join("_")}_hk`;
+  const bkFields = linkKeys.map(k => `${k} AS ${k}_bk`).join(",\n  ");	 
    sql = `
 config {
  type: "table",
-  tags: ["hub"],
+  tags: ["link"],
+  schema: "Row_Vault",
   partitionBy: "load_dts",
-  clusterBy: ["${business_key}"]
+  clusterBy: [${linkKeys.map(k => `"${k}_bk"`).join(", ")}]
 }
+
 SELECT
-  TO_HEX(SHA256(CAST(${business_key} AS STRING))) AS ${business_key}_hk,
-  ${business_key} AS ${business_key}_bk,
+  TO_HEX(SHA256(CAST(CONCAT(${business_key.split("|").map(k => `l.${k.trim()}`).join(", ")}) AS STRING))) AS ${business_key.split("|").map(k => k.trim()).join("_")}_hk,
+  ${business_key.split("|").map(k => `CAST(l.${k.trim()} AS STRING) AS ${k.trim()}_bk`).join(",\n  ")},
   CURRENT_DATE() AS load_dts,
-  '${source_table}' as record_source
+  '${source_table}' AS record_source
 FROM
-  \${ref('${source_table}')}
+  \${ref("${source_table}")} AS l
 `;
  }
- else if (table_type === "satellite") {
-   sql = `
+else if (table_type === "satellite") {
+  const baseTableName = `${table_name}_base`;
+  const mergeTableName = `${table_name}_merge`;
+ 
+  const baseSQL = `
 config {
- type: "table",
-  tags: ["hub"],
+  type: "table",
+  tags: ["satellite", "base"],
+  schema: "Row_Vault",
   partitionBy: "load_dts",
-  clusterBy: ["${business_key}"]
+  clusterBy: ["${business_key}_bk"]
 }
-// SCD Type 2 History Tracking
-// Track changes in descriptive attributes
-with source_data as (
- SELECT
+ 
+SELECT
   TO_HEX(SHA256(CAST(${business_key} AS STRING))) AS ${business_key}_hk,
   ${business_key} AS ${business_key}_bk,
+  ${descriptive_fields.replace(/\|/g, ",")},
   CURRENT_DATE() AS load_dts,
-  '${source_table}' as record_source
+  '${source_table}' AS record_source
 FROM
-  \${ref('${source_table}')}
-),
-scd2 as (
- select
-   s.${business_key},
-   s.${descriptive_fields.replace(/\|/g, ", s.")},
-   s.load_dts,
-   s.record_source,
-   case
-     when t.${business_key} is null then true
-     when ${descriptive_fields.split("|").map(f => `s.${f} <> t.${f}`).join(" or ")} then true
-     else false
-   end as is_changed
- from source_data s
- left join ${table_name} t
- on s.${business_key} = t.${business_key}
- and t.is_current = true
-)
-select
- ${business_key},
- ${descriptive_fields.replace(/\|/g, ",")},
- load_dts,
- record_source,
- case when is_changed then true else false end as is_current,
- case when is_changed then load_dts else null end as effective_start_date,
- null as effective_end_date
-from scd2
-   `;
- }
- return sql;
+  \${ref("${source_table}")}
+`;
+ 
+  const mergeSQL = `
+config {
+  type: "operations",
+  tags: ["scd2", "satellite"],
+  description: "SCD Type 2 update for ${table_name}"
 }
+ 
+MERGE INTO \${ref("${table_name}")} AS target
+USING (
+  SELECT
+    TO_HEX(SHA256(CAST(${business_key} AS STRING))) AS ${business_key}_hk,
+    ${business_key} AS ${business_key}_bk,
+    ${descriptive_fields.replace(/\|/g, ",")},
+    CURRENT_DATE() AS load_dts,
+    '${source_table}' AS record_source
+  FROM \${ref("${source_table}")}
+) AS source
+ON target.${business_key}_bk = source.${business_key}_bk AND target.is_current = TRUE
+ 
+WHEN MATCHED AND (
+  ${descriptive_fields.split("|").map(f => `source.${f} <> target.${f}`).join(" OR ")}
+) THEN
+  UPDATE SET
+    is_current = FALSE,
+    effective_end_date = source.load_dts
+ 
+WHEN NOT MATCHED THEN
+  INSERT (
+    ${business_key}_hk,
+    ${business_key}_bk,
+    ${descriptive_fields.replace(/\|/g, ",")},
+    load_dts,
+    record_source,
+    is_current,
+    effective_start_date,
+    effective_end_date
+  )
+  VALUES (
+    source.${business_key}_hk,
+    source.${business_key}_bk,
+    ${descriptive_fields.split("|").map(f => `source.${f}`).join(", ")},
+    source.load_dts,
+    source.record_source,
+    TRUE,
+    source.load_dts,
+    NULL
+  )
+`;
+ 
+  return { baseSQL, mergeSQL };
+}	
 // Main execution
 (async () => {
  const rows = await parseCSV(metadataFile);
@@ -127,5 +165,10 @@ from scd2
    const sqlxContent = generateSQLX(row);
    fs.writeFileSync(path.join(outputDir, fileName), sqlxContent);
    console.log(`Generated: ${fileName}`);
+
+  if (row.table_type === "satellite") {
+  const { baseSQL, mergeSQL } = generateSQLX(row);
+  fs.writeFileSync(path.join(outputDir, `${row.table_name}_base.sqlx`), baseSQL);
+  fs.writeFileSync(path.join(outputDir, `${row.table_name}_merge.sqlx`), mergeSQL);}	 
  });
 })();

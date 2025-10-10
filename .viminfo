@@ -12,15 +12,15 @@
 ~h
 # Command Line History (newest to oldest):
 :wq
-|2,0,1759577068,,"wq"
-:q1
-|2,0,1759575074,,"q1"
-:wq!
-|2,0,1759574097,,"wq!"
-:q!
-|2,0,1759573222,,"q!"
+|2,0,1760068977,,"wq"
 :q
-|2,0,1759570333,,"q"
+|2,0,1759987702,,"q"
+:q!
+|2,0,1759987038,,"q!"
+:wq!
+|2,0,1759663055,,"wq!"
+:q1
+|2,0,1759658461,,"q1"
 : "cloud-rush-473406",
 |2,0,1759563460,," \"cloud-rush-473406\","
 : ["hub"],
@@ -38,332 +38,319 @@
 
 # Registers:
 ""1	LINE	0
-	schema: "Cloud_Rush_dataset"
-	}
-|3,1,1,1,2,0,1759573057,"schema: \"Cloud_Rush_dataset\"","}"
+	    --ROUND(AVG(SSP.Amount)) AS TicketAverage
+|3,1,1,1,1,0,1759986642,"    --ROUND(AVG(SSP.Amount)) AS TicketAverage"
 "2	LINE	0
-	config {
-	type: "table",
-|3,0,2,1,2,0,1759573053,"config {","type: \"table\","
+	  clusterBy: ["${business_key}_bk"]
+|3,0,2,1,1,0,1759688786,"  clusterBy: [\"${business_key}_bk\"]"
 "3	LINE	0
-	dataformCoreVersion: 3.0.26
-|3,0,3,1,1,0,1759566845,"dataformCoreVersion: 3.0.26"
+	}
+|3,0,3,1,1,0,1759688623,"}"
 "4	LINE	0
-	defaultAssertionSchema: Row_Vault
-|3,0,4,1,1,0,1759566845,"defaultAssertionSchema: Row_Vault"
+	  clusterBy: ["${business_key}_bk"]
+|3,0,4,1,1,0,1759688621,"  clusterBy: [\"${business_key}_bk\"]"
 "5	LINE	0
-	defaultSchema: Row_Vault
-|3,0,5,1,1,0,1759566843,"defaultSchema: Row_Vault"
+	  partitionBy: "load_dts",
+|3,0,5,1,1,0,1759688620,"  partitionBy: \"load_dts\","
 "6	LINE	0
-	defaultDatabase: cloud-rush-473406
-|3,0,6,1,1,0,1759566842,"defaultDatabase: cloud-rush-473406"
+	  schema: "Row_Vault",
+|3,0,6,1,1,0,1759688619,"  schema: \"Row_Vault\","
 "7	LINE	0
-	defaultProject: cloud-rush-473406
-|3,0,7,1,1,0,1759566603,"defaultProject: cloud-rush-473406"
+	  tags: ["satellite", "base"],
+|3,0,7,1,1,0,1759688618,"  tags: [\"satellite\", \"base\"],"
 "8	LINE	0
-	defaultDataset: Row_Vault
-|3,0,8,1,1,0,1759566601,"defaultDataset: Row_Vault"
+	  type: "table",
+|3,0,8,1,1,0,1759688618,"  type: \"table\","
 "9	LINE	0
-	defaultAssertionDataset: Row_Vault
-|3,0,9,1,1,0,1759566600,"defaultAssertionDataset: Row_Vault"
+	config {
+|3,0,9,1,1,0,1759688616,"config {"
 "-	CHAR	0
-	"
-|3,0,36,0,1,0,1759571427,"\""
+	b
+|3,0,36,0,1,0,1759900912,"b"
 
 # File marks:
-'0  19  3  ~/metadata_java_script.mjs
-|4,48,19,3,1759577068,"~/metadata_java_script.mjs"
-'1  105  8  ~/metadata_java_script.mjs
-|4,49,105,8,1759575944,"~/metadata_java_script.mjs"
-'2  105  8  ~/metadata_java_script.mjs
-|4,50,105,8,1759575944,"~/metadata_java_script.mjs"
-'3  7  0  ~/definitions/Airindia_Booking_Details
-|4,51,7,0,1759575078,"~/definitions/Airindia_Booking_Details"
-'4  7  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,52,7,0,1759574940,"~/definitions/Airindia_Age_Group.sqlx"
-'5  21  67  ~/metadata.csv
-|4,53,21,67,1759574496,"~/metadata.csv"
-'6  82  21  ~/metadata_java_script.mjs
-|4,54,82,21,1759574473,"~/metadata_java_script.mjs"
-'7  82  21  ~/metadata_java_script.mjs
-|4,55,82,21,1759574473,"~/metadata_java_script.mjs"
-'8  82  21  ~/metadata_java_script.mjs
-|4,56,82,21,1759574473,"~/metadata_java_script.mjs"
-'9  82  21  ~/metadata_java_script.mjs
-|4,57,82,21,1759574473,"~/metadata_java_script.mjs"
+'0  1  7  ~/definitions/Presentation_Vault/TARGET_TABLE
+|4,48,1,7,1760068977,"~/definitions/Presentation_Vault/TARGET_TABLE"
+'1  32  32  ~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx
+|4,49,32,32,1760015109,"~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx"
+'2  33  55  ~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx
+|4,50,33,55,1760014802,"~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx"
+'3  33  55  ~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx
+|4,51,33,55,1760014802,"~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx"
+'4  39  66  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,52,39,66,1760011348,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+'5  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,53,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+'6  22  64  ~/metadata.csv
+|4,54,22,64,1759994350,"~/metadata.csv"
+'7  54  85  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,55,54,85,1759994264,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+'8  54  51  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,56,54,51,1759994142,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+'9  54  51  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,57,54,51,1759994142,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
 
 # Jumplist (newest first):
--'  19  3  ~/metadata_java_script.mjs
-|4,39,19,3,1759577068,"~/metadata_java_script.mjs"
--'  105  8  ~/metadata_java_script.mjs
-|4,39,105,8,1759576989,"~/metadata_java_script.mjs"
--'  105  8  ~/metadata_java_script.mjs
-|4,39,105,8,1759575944,"~/metadata_java_script.mjs"
--'  82  21  ~/metadata_java_script.mjs
-|4,39,82,21,1759575925,"~/metadata_java_script.mjs"
--'  82  21  ~/metadata_java_script.mjs
-|4,39,82,21,1759575925,"~/metadata_java_script.mjs"
--'  7  0  ~/definitions/Airindia_Booking_Details
-|4,39,7,0,1759575078,"~/definitions/Airindia_Booking_Details"
--'  7  0  ~/definitions/Airindia_Booking_Details
-|4,39,7,0,1759575078,"~/definitions/Airindia_Booking_Details"
--'  7  0  ~/definitions/Airindia_Booking_Details
-|4,39,7,0,1759575078,"~/definitions/Airindia_Booking_Details"
--'  7  0  ~/definitions/Airindia_Booking_Details
-|4,39,7,0,1759575078,"~/definitions/Airindia_Booking_Details"
--'  1  0  ~/definitions/Airindia_Booking_Details
-|4,39,1,0,1759575054,"~/definitions/Airindia_Booking_Details"
--'  1  0  ~/definitions/Airindia_Booking_Details
-|4,39,1,0,1759575054,"~/definitions/Airindia_Booking_Details"
--'  1  0  ~/definitions/Airindia_Booking_Details
-|4,39,1,0,1759575054,"~/definitions/Airindia_Booking_Details"
--'  1  0  ~/definitions/Airindia_Booking_Details
-|4,39,1,0,1759575054,"~/definitions/Airindia_Booking_Details"
--'  7  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,7,0,1759574940,"~/definitions/Airindia_Age_Group.sqlx"
--'  7  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,7,0,1759574940,"~/definitions/Airindia_Age_Group.sqlx"
--'  7  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,7,0,1759574940,"~/definitions/Airindia_Age_Group.sqlx"
--'  7  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,7,0,1759574940,"~/definitions/Airindia_Age_Group.sqlx"
--'  7  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,7,0,1759574940,"~/definitions/Airindia_Age_Group.sqlx"
--'  7  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,7,0,1759574940,"~/definitions/Airindia_Age_Group.sqlx"
--'  7  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,7,0,1759574940,"~/definitions/Airindia_Age_Group.sqlx"
--'  7  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,7,0,1759574940,"~/definitions/Airindia_Age_Group.sqlx"
--'  1  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,1,0,1759574911,"~/definitions/Airindia_Age_Group.sqlx"
--'  1  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,1,0,1759574911,"~/definitions/Airindia_Age_Group.sqlx"
--'  1  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,1,0,1759574911,"~/definitions/Airindia_Age_Group.sqlx"
--'  1  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,1,0,1759574911,"~/definitions/Airindia_Age_Group.sqlx"
--'  1  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,1,0,1759574911,"~/definitions/Airindia_Age_Group.sqlx"
--'  1  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,1,0,1759574911,"~/definitions/Airindia_Age_Group.sqlx"
--'  1  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,1,0,1759574911,"~/definitions/Airindia_Age_Group.sqlx"
--'  1  0  ~/definitions/Airindia_Age_Group.sqlx
-|4,39,1,0,1759574911,"~/definitions/Airindia_Age_Group.sqlx"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  21  67  ~/metadata.csv
-|4,39,21,67,1759574496,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  23  3  ~/metadata.csv
-|4,39,23,3,1759574480,"~/metadata.csv"
--'  82  21  ~/metadata_java_script.mjs
-|4,39,82,21,1759574473,"~/metadata_java_script.mjs"
--'  82  21  ~/metadata_java_script.mjs
-|4,39,82,21,1759574473,"~/metadata_java_script.mjs"
--'  82  21  ~/metadata_java_script.mjs
-|4,39,82,21,1759574473,"~/metadata_java_script.mjs"
--'  82  21  ~/metadata_java_script.mjs
-|4,39,82,21,1759574473,"~/metadata_java_script.mjs"
--'  82  21  ~/metadata_java_script.mjs
-|4,39,82,21,1759574473,"~/metadata_java_script.mjs"
--'  82  21  ~/metadata_java_script.mjs
-|4,39,82,21,1759574473,"~/metadata_java_script.mjs"
--'  82  21  ~/metadata_java_script.mjs
-|4,39,82,21,1759574473,"~/metadata_java_script.mjs"
--'  82  21  ~/metadata_java_script.mjs
-|4,39,82,21,1759574473,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574381,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574381,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574381,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574381,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574381,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574381,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574381,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574381,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574381,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574381,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574097,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574097,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574097,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574097,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574097,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574097,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574097,"~/metadata_java_script.mjs"
--'  78  21  ~/metadata_java_script.mjs
-|4,39,78,21,1759574097,"~/metadata_java_script.mjs"
--'  44  15  ~/metadata_java_script.mjs
-|4,39,44,15,1759573872,"~/metadata_java_script.mjs"
--'  44  15  ~/metadata_java_script.mjs
-|4,39,44,15,1759573872,"~/metadata_java_script.mjs"
--'  44  15  ~/metadata_java_script.mjs
-|4,39,44,15,1759573872,"~/metadata_java_script.mjs"
--'  44  15  ~/metadata_java_script.mjs
-|4,39,44,15,1759573872,"~/metadata_java_script.mjs"
--'  44  15  ~/metadata_java_script.mjs
-|4,39,44,15,1759573872,"~/metadata_java_script.mjs"
--'  44  15  ~/metadata_java_script.mjs
-|4,39,44,15,1759573872,"~/metadata_java_script.mjs"
--'  44  15  ~/metadata_java_script.mjs
-|4,39,44,15,1759573872,"~/metadata_java_script.mjs"
--'  44  15  ~/metadata_java_script.mjs
-|4,39,44,15,1759573872,"~/metadata_java_script.mjs"
--'  44  15  ~/metadata_java_script.mjs
-|4,39,44,15,1759573872,"~/metadata_java_script.mjs"
--'  44  15  ~/metadata_java_script.mjs
-|4,39,44,15,1759573872,"~/metadata_java_script.mjs"
--'  44  15  ~/metadata_java_script.mjs
-|4,39,44,15,1759573872,"~/metadata_java_script.mjs"
--'  44  15  ~/metadata_java_script.mjs
-|4,39,44,15,1759573872,"~/metadata_java_script.mjs"
--'  44  15  ~/metadata_java_script.mjs
-|4,39,44,15,1759573872,"~/metadata_java_script.mjs"
+-'  1  7  ~/definitions/Presentation_Vault/TARGET_TABLE
+|4,39,1,7,1760068977,"~/definitions/Presentation_Vault/TARGET_TABLE"
+-'  32  32  ~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx
+|4,39,32,32,1760015109,"~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx"
+-'  32  32  ~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx
+|4,39,32,32,1760015109,"~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx"
+-'  33  55  ~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx
+|4,39,33,55,1760015019,"~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx"
+-'  33  55  ~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx
+|4,39,33,55,1760015019,"~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx"
+-'  33  55  ~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx
+|4,39,33,55,1760014802,"~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx"
+-'  33  55  ~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx
+|4,39,33,55,1760014802,"~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx"
+-'  5  24  ~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx
+|4,39,5,24,1760014777,"~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx"
+-'  5  24  ~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx
+|4,39,5,24,1760014777,"~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx"
+-'  5  24  ~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx
+|4,39,5,24,1760014777,"~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx"
+-'  5  24  ~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx
+|4,39,5,24,1760014777,"~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx"
+-'  39  66  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,39,66,1760011348,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  39  66  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,39,66,1760011348,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  39  66  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,39,66,1760011348,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  39  66  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,39,66,1760011348,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  39  66  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,39,66,1760011348,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  39  66  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,39,66,1760011348,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  39  66  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,39,66,1760011348,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  39  66  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,39,66,1760011348,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  12  25  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,12,25,1760008916,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  12  25  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,12,25,1760008916,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  12  25  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,12,25,1760008916,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  12  25  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,12,25,1760008916,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  12  25  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,12,25,1760008916,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  12  25  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,12,25,1760008916,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  12  25  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,12,25,1760008916,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  12  25  ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+|4,39,12,25,1760008916,"~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  54  29  ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+|4,39,54,29,1759994840,"~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  22  64  ~/metadata.csv
+|4,39,22,64,1759994350,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
+-'  20  190  ~/metadata.csv
+|4,39,20,190,1759994307,"~/metadata.csv"
 
 # History of marks within files (newest to oldest):
 
-> ~/metadata_java_script.mjs
-	*	1759577067	0
-	"	19	3
-	^	19	4
-	.	50	21
-	+	8	46
-	+	55	25
-	+	63	8
-	+	55	21
-	+	63	0
-	+	74	1
-	+	55	19
-	+	63	13
-	+	73	14
-	+	55	5
-	+	67	0
-	+	84	12
-	+	55	16
-	+	55	11
-	+	67	11
-	+	84	7
-	+	55	27
-	+	67	31
-	+	67	22
-	+	55	5
-	+	55	45
-	+	42	8
-	+	55	5
-	+	84	14
-	+	1	11
-	+	84	14
-	+	1	11
-	+	84	6
-	+	54	1
-	+	52	18
-	+	54	8
-	+	49	53
-	+	54	2
-	+	84	7
-	+	67	5
-	+	84	6
-	+	63	0
-	+	59	0
-	+	61	15
-	+	78	21
-	+	117	9
-	+	67	21
-	+	50	21
+> ~/definitions/Presentation_Vault/TARGET_TABLE
+	*	1760068976	0
+	"	1	7
+	^	1	8
+	.	66	16
+	+	66	16
 
-> ~/definitions/Airindia_Booking_Details
-	*	1759575077	0
-	"	7	0
-	^	7	1
-	.	7	0
-	+	7	0
+> ~/definitions/business_vault/MONTHLY_BOOKING_PER_ROUTE.sqlx
+	*	1760015108	0
+	"	32	32
+	^	32	33
+	.	32	9
+	+	5	11
+	+	32	9
+	+	33	33
+	+	32	9
 
-> ~/definitions/Airindia_Age_Group.sqlx
-	*	1759574936	0
-	"	7	0
-	^	7	1
-	.	7	0
-	+	7	0
+> ~/definitions/business_vault/FREQUENT_FLYERS_AGE_GROUP.sqlx
+	*	1760011347	0
+	"	39	66
+	^	39	67
+	.	39	44
+	+	5	20
+	+	29	24
+	+	39	44
+
+> ~/definitions/business_vault/TOP_REVENUE_FLIGHTS.sqlx
+	*	1759994840	0
+	"	54	29
+	^	54	30
+	.	54	30
+	+	52	52
+	+	70	27
+	+	52	86
+	+	5	20
+	+	15	0
+	+	23	4
+	+	25	4
+	+	26	4
+	+	27	15
+	+	28	5
+	+	39	0
+	+	40	4
+	+	41	5
+	+	42	16
+	+	43	5
+	+	54	86
+	+	63	1
+	+	71	54
+	+	51	30
+	+	54	30
 
 > ~/metadata.csv
-	*	1759574494	0
-	"	21	67
-	^	21	68
-	.	21	52
+	*	1759994348	0
+	"	22	64
+	^	22	65
+	.	22	52
 	+	2	3
 	+	3	3
 	+	4	0
@@ -374,33 +361,342 @@
 	+	9	0
 	+	10	0
 	+	11	0
-	+	12	4
-	+	13	4
 	+	14	4
 	+	15	4
-	+	16	3
-	+	17	0
-	+	18	0
+	+	16	4
+	+	17	4
+	+	18	3
 	+	19	0
 	+	20	0
 	+	21	0
 	+	22	0
 	+	23	0
-	+	21	52
+	+	24	0
+	+	25	0
+	+	23	52
+	+	16	52
+	+	17	52
+	+	20	123
+	+	21	141
+	+	20	141
+	+	14	69
+	+	15	78
+	+	14	30
+	+	15	26
+	+	26	41
+	+	26	99
+	+	27	100
+	+	27	5
+	+	27	99
+	+	25	46
+	+	24	46
+	+	26	53
+	+	27	53
+	+	23	44
+	+	22	44
+	+	23	44
+	+	25	46
+	+	24	46
+	+	26	44
+	+	27	63
+	+	26	53
+	+	27	53
+	+	26	53
+	+	13	0
+	+	12	9
+	+	13	15
+	+	12	49
+	+	13	27
+	+	12	26
+	+	29	100
+	+	12	26
+	+	28	129
+	+	29	45
+	+	28	66
+	+	29	67
+	+	28	35
+	+	29	9
+	+	28	9
+	+	26	63
+	+	27	63
+	+	20	176
+	+	21	177
+	+	20	177
+	+	23	52
+	+	22	52
 
-> ~/definitions/Airindia_AirPort_Details.sqlx
-	*	1759570096	0
-	"	7	0
-	^	7	1
-	.	8	0
-	+	8	0
+> ~/definitions/Target_Table.sqlx
+	*	1759988263	0
+	"	59	43
+	^	59	44
+	.	59	44
+	+	59	44
+
+> ~/definitions/business_vault/AVERAGE_TICKET_PRICE_PER_CLASS.sqlx
+	*	1759920255	0
+	"	5	20
+	^	5	21
+	.	5	20
+	+	5	20
+	+	15	0
+	+	24	3
+	+	25	4
+	+	27	5
+	+	26	15
+	+	38	0
+	+	39	2
+	+	40	4
+	+	41	15
+	+	42	5
+	+	5	20
+
+> ~/definitions/business_vault/MOST_DELAYED_FLIGHTS.sqlx
+	*	1759920202	0
+	"	5	20
+	^	5	21
+	.	5	20
+	+	5	20
+
+> ~/definitions/business_vault/Monthly_booking_per_route.sqlx
+	*	1759901047	0
+	"	1	2
+	^	1	3
+	.	1	2
+	+	5	20
+	+	1	2
+
+> ~/definitions/Airindia_Age_Group.sqlx
+	*	1759773080	0
+	"	4	28
+	^	4	29
+	.	4	11
+	+	7	0
+	+	4	11
+
+> ~/definitions/auto_generated/Link_AI_passenger_booking_flight.sqlx
+	*	1759731036	0
+	"	16	44
+	^	16	45
+
+> ~/metadata_java_script_bkp1.mjs
+	*	1759695845	0
+	"	106	18
+	^	86	19
+	.	121	18
+	+	116	27
+	+	106	22
+	+	111	29
+	+	117	46
+	+	121	18
+
+> ~/metadata_java_script_bkp.mjs
+	*	1759695576	0
+	"	97	13
+	^	37	28
+	.	46	32
+	+	50	21
+	+	67	2
+	+	87	2
+	+	67	21
+	+	50	21
+	+	87	21
+	+	8	47
+	+	80	32
+	+	91	9
+	+	71	25
+	+	63	32
+	+	54	9
+	+	46	32
+
+> ~/metadata_java_script_fresh.mjs
+	*	1759690704	0
+	"	169	9
+	^	227	10
+	.	227	10
+	+	15	47
+	+	227	10
+
+> ~/metadata_java_script_updated.mjs
+	*	1759689783	0
+	"	70	16
+	^	70	17
+	.	70	17
+	+	111	8
+	+	112	0
+	+	112	8
+	+	112	0
+	+	92	8
+	+	92	0
+	+	112	0
+	+	112	8
+	+	116	55
+	+	117	0
+	+	92	8
+	+	99	2
+	+	100	0
+	+	99	0
+	+	98	14
+	+	70	17
+
+> ~/metadata_java_script.mjs
+	*	1759687601	0
+	"	172	83
+	^	172	84
+	.	172	0
+	+	275	14
+	+	61	16
+	+	61	11
+	+	84	64
+	+	275	9
+	+	61	27
+	+	84	84
+	+	84	75
+	+	61	5
+	+	61	45
+	+	47	8
+	+	61	5
+	+	275	16
+	+	1	11
+	+	275	16
+	+	1	11
+	+	275	8
+	+	60	1
+	+	58	18
+	+	60	8
+	+	55	53
+	+	60	2
+	+	275	9
+	+	84	58
+	+	275	8
+	+	75	0
+	+	70	0
+	+	73	15
+	+	275	21
+	+	282	9
+	+	84	74
+	+	56	21
+	+	275	35
+	+	43	0
+	+	275	35
+	+	55	35
+	+	84	96
+	+	84	88
+	+	84	131
+	+	84	69
+	+	75	29
+	+	84	53
+	+	84	59
+	+	84	53
+	+	84	6
+	+	84	55
+	+	275	1
+	+	275	2
+	+	275	4
+	+	275	3
+	+	275	2
+	+	275	0
+	+	41	34
+	+	52	32
+	+	60	9
+	+	75	43
+	+	275	9
+	+	275	32
+	+	275	9
+	+	42	31
+	+	84	90
+	+	29	36
+	+	31	14
+	+	84	89
+	+	84	102
+	+	160	23
+	+	84	57
+	+	84	89
+	+	84	73
+	+	84	105
+	+	275	2
+	+	72	2
+	+	49	2
+	+	68	0
+	+	63	33
+	+	67	0
+	+	62	1
+	+	75	0
+	+	74	2
+	+	84	64
+	+	84	13
+	+	77	6
+	+	83	0
+	+	84	0
+	+	76	0
+	+	275	28
+	+	1	7
+	+	275	42
+	+	275	53
+	+	275	11
+	+	275	0
+	+	275	11
+	+	275	0
+	+	274	0
+	+	161	0
+	+	160	0
+	+	86	38
+	+	159	0
+	+	168	2
+	+	172	0
+
+> ~/metadata_java_script_new.mjs
+	*	1759685657	0
+	"	67	32
+	^	67	33
+	.	89	37
+	+	53	5
+	+	70	5
+	+	96	5
+	+	85	0
+	+	64	0
+	+	61	13
+	+	82	18
+	+	47	0
+	+	111	6
+	+	96	31
+	+	70	31
+	+	53	31
+	+	43	15
+	+	89	37
+
+> ~/definitions/auto_gen_sqlx/Sat_AI_airport_satellite_scd2.sqlx
+	*	1759669591	0
+	"	41	0
+
+> ~/definitions/auto_generated/Sat_SJ_payment_satellite.sqlx
+	*	1759667475	0
+	"	30	38
+	^	30	39
+	.	30	38
+	+	30	38
+
+> ~/definitions/auto_generated/Sat_AI_flight_satellite.sqlx
+	*	1759667382	0
+	"	1	0
+
+> /home/metadata_java_script.mjs
+	*	1759661603	0
+	"	1	0
+
+> ~/definitions/metadata_java_script.mjs
+	*	1759661590	0
+	"	1	0
+
+> ~/definitions/auto_generated/metadata_java_script.mjs
+	*	1759650090	0
+	"	1	0
 
 > ~/workflow_settings.yaml
-	*	1759566895	0
-	"	4	26
-	^	4	27
-	.	4	24
-	+	5	26
+	*	1759604649	0
+	"	4	6
+	^	4	7
+	.	4	7
+	+	1	26
 	+	1	24
 	+	1	43
 	+	1	24
@@ -408,24 +704,25 @@
 	+	1	34
 	+	1	24
 	+	1	33
-	+	4	24
-
-> ~/.df-credentials.json
-	*	1759565543	0
-	"	13	0
-	^	13	1
-	.	13	0
+	+	1	24
+	+	1	40
+	+	1	16
+	+	1	24
+	+	1	51
+	+	1	18
 	+	1	0
-	+	1	2
-	+	1	1
-	+	20	0
-	+	13	0
+	+	5	25
+	+	4	7
+
+> /home/AI_passenger.sqlx
+	*	1759602364	0
+	"	1	0
 
 > ~/definitions/AI_passenger.sqlx
-	*	1759562353	0
-	"	6	0
-	^	6	1
-	.	6	0
+	*	1759601699	0
+	"	5	28
+	^	5	29
+	.	5	28
 	+	1	34
 	+	1	0
 	+	1	12
@@ -441,6 +738,47 @@
 	+	1	28
 	+	1	8
 	+	6	0
+	+	5	28
+
+> ~/definitions/auto_generated/Hub_AI_passenger.sqlx
+	*	1759599552	0
+	"	1	0
+	^	1	0
+	.	2	0
+	+	2	0
+
+> ~/definitions/auto_generated/Sat_AI_airport_satellite.sqlx
+	*	1759599496	0
+	"	1	0
+
+> ~/package.json
+	*	1759599051	0
+	"	21	0
+
+> ~/definitions/Airindia_Booking_Details
+	*	1759575077	0
+	"	7	0
+	^	7	1
+	.	7	0
+	+	7	0
+
+> ~/definitions/Airindia_AirPort_Details.sqlx
+	*	1759570096	0
+	"	7	0
+	^	7	1
+	.	8	0
+	+	8	0
+
+> ~/.df-credentials.json
+	*	1759565543	0
+	"	13	0
+	^	13	1
+	.	13	0
+	+	1	0
+	+	1	2
+	+	1	1
+	+	20	0
+	+	13	0
 
 > ~/AI_passenger.sqlx
 	*	1759561854	0

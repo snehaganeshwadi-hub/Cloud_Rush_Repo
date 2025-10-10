@@ -1,14 +1,18 @@
 
 config {
- type: "table",
-  tags: ["hub"],
+  type: "table",
+  tags: ["link"],
+  schema: "Row_Vault",
   partitionBy: "load_dts",
-  clusterBy: ["PassengerID|BookingID|FlightID"]
+  clusterBy: ["PassengerID_bk", "BookingID_bk", "FlightID_bk"]
 }
+ 
 SELECT
-  TO_HEX(SHA256(CAST(PassengerID|BookingID|FlightID AS STRING))) AS PassengerID|BookingID|FlightID_hk,
-  PassengerID|BookingID|FlightID AS PassengerID|BookingID|FlightID_bk,
+  TO_HEX(SHA256(CAST(CONCAT(l.PassengerID, l.BookingID, l.FlightID) AS STRING))) AS PassengerID_BookingID_FlightID_hk,
+  CAST(l.PassengerID AS STRING) AS PassengerID_bk,
+  CAST(l.BookingID AS STRING) AS BookingID_bk,
+  CAST(l.FlightID AS STRING) AS FlightID_bk,
   CURRENT_DATE() AS load_dts,
-  'Airindia_Booking_Details' as record_source
+  'Airindia_Booking_Details' AS record_source
 FROM
-  ${ref('Airindia_Booking_Details')}
+  ${ref("Airindia_Booking_Details")} AS l

@@ -1,0 +1,19 @@
+
+config {
+  type: "table",
+  tags: ["link"],
+  schema: "Row_Vault",
+  partitionBy: "load_dts",
+  clusterBy: ["PassengerID_bk", "BookingID_bk", "FlightID_bk", "PaymentID_bk"]
+}
+ 
+SELECT
+  TO_HEX(SHA256(CAST(CONCAT(l.PassengerID, l.BookingID, l.FlightID, l.PaymentID) AS STRING))) AS PassengerID_BookingID_FlightID_PaymentID_hk,
+  CAST(l.PassengerID AS STRING) AS PassengerID_bk,
+  CAST(l.BookingID AS STRING) AS BookingID_bk,
+  CAST(l.FlightID AS STRING) AS FlightID_bk,
+  CAST(l.PaymentID AS STRING) AS PaymentID_bk,
+  CURRENT_DATE() AS load_dts,
+  'SpiceJet_Booking_Details' AS record_source
+FROM
+  ${ref("SpiceJet_Booking_Details")} AS l

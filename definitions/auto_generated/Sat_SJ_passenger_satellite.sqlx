@@ -1,44 +1,17 @@
 
 config {
- type: "table",
-  tags: ["hub"],
+  type: "table",
+  tags: ["satellite"],
+  schema: "Row_Vault",
   partitionBy: "load_dts",
-  clusterBy: ["PassengerID"]
+  clusterBy: ["PassengerID_bk"]
 }
-// SCD Type 2 History Tracking
-// Track changes in descriptive attributes
-with source_data as (
- SELECT
+ 
+SELECT
   TO_HEX(SHA256(CAST(PassengerID AS STRING))) AS PassengerID_hk,
   PassengerID AS PassengerID_bk,
+  FirstName,LastName,DOB,Email,CreatedDateTime,LastupdateDateTime,
   CURRENT_DATE() AS load_dts,
-  'SpiceJet_AI_Passenger_Details' as record_source
+  'SpiceJet_AI_Passenger_Details' AS record_source
 FROM
-  ${ref('SpiceJet_AI_Passenger_Details')}
-),
-scd2 as (
- select
-   s.PassengerID,
-   s.FirstName, s.LastName, s.DOB, s.Email, s.CreatedDateTime, s.LastupdateDateTime,
-   s.load_dts,
-   s.record_source,
-   case
-     when t.PassengerID is null then true
-     when s.FirstName <> t.FirstName or s.LastName <> t.LastName or s.DOB <> t.DOB or s.Email <> t.Email or s.CreatedDateTime <> t.CreatedDateTime or s.LastupdateDateTime <> t.LastupdateDateTime then true
-     else false
-   end as is_changed
- from source_data s
- left join Sat_SJ_passenger_satellite t
- on s.PassengerID = t.PassengerID
- and t.is_current = true
-)
-select
- PassengerID,
- FirstName,LastName,DOB,Email,CreatedDateTime,LastupdateDateTime,
- load_dts,
- record_source,
- case when is_changed then true else false end as is_current,
- case when is_changed then load_dts else null end as effective_start_date,
- null as effective_end_date
-from scd2
-   
+  ${ref("SpiceJet_AI_Passenger_Details")}

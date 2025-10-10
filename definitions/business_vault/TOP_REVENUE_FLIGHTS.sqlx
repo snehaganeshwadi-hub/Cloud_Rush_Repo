@@ -1,0 +1,72 @@
+--3)TOP_REVENUE_FLIGHTS:
+
+config {
+  type: "table",
+  schema: "Business_Vault",
+  tags: ["top_revenue_flights"]
+}
+
+--TOP_REVENUE_FLIGHTS,
+
+-- Deduplicate AI bookings
+WITH ai_dedup_bookings AS (
+  SELECT DISTINCT A1.FlightID_bk, A1.PaymentID_bk
+  FROM ${ref("Link_AI_passenger_book_fght_pay")} A1
+  --`cloud-rush-473406.Row_Vault.Link_AI_passenger_book_fght_pay` A1
+  JOIN ${ref("Sat_AI_booking_satellite")} A2
+  --`cloud-rush-473406.Row_Vault.Sat_AI_booking_satellite` A2
+    ON A1.FlightID_bk = A2.FlightID
+  WHERE A2.Status = 'Complete'
+),
+
+-- Deduplicate SJ bookings
+sj_dedup_bookings AS (
+  SELECT DISTINCT S1.FlightID_bk, S1.PaymentID_bk
+  FROM ${ref("Link_SJ_passenger_book_fght_pay")} S1
+  --`cloud-rush-473406.Row_Vault.Link_SJ_passenger_book_fght_pay` S1
+  JOIN ${ref("Sat_SJ_booking_satellite")} S2
+  --`cloud-rush-473406.Row_Vault.Sat_SJ_booking_satellite` S2
+    ON S1.FlightID_bk = S2.FlightID
+  WHERE S2.Status = 'Complete'
+),
+
+-- Combine AI and SJ flight data
+flights AS (
+  SELECT FlightID_bk, FlightNumber, 'AI' AS REC_SRC FROM ${ref("Sat_AI_flight_satellite")} 
+  --`cloud-rush-473406.Row_Vault.Sat_AI_flight_satellite`
+  UNION ALL
+  SELECT FlightID_bk, FlightNumber, 'SJ' AS REC_SRC FROM ${ref("Sat_SJ_flight_satellite")} 
+  --`cloud-rush-473406.Row_Vault.Sat_SJ_flight_satellite`
+),
+
+-- Combine AI and SJ bookings with source
+bookings AS (
+  SELECT FlightID_bk, PaymentID_bk, 'AI' AS REC_SRC FROM ai_dedup_bookings
+  UNION ALL
+  SELECT FlightID_bk, PaymentID_bk, 'SJ' AS REC_SRC FROM sj_dedup_bookings
+),
+
+-- Combine AI and SJ payments with source
+payments AS (
+  SELECT PaymentID_bk, Amount,PaymentMethod, 'AI' AS REC_SRC FROM ${ref("Sat_AI_payment_satellite")} 
+  --`cloud-rush-473406.Row_Vault.Sat_AI_payment_satellite`
+  UNION ALL
+  SELECT PaymentID_bk, Amount,PaymentMethod, 'SJ' AS REC_SRC FROM ${ref("Sat_AI_payment_satellite")}
+  --`cloud-rush-473406.Row_Vault.Sat_SJ_payment_satellite`
+)
+
+-- Final aggregation                
+SELECT
+  f.FlightID_bk,
+  f.FlightNumber,
+  p.PaymentID_bk,
+  p.PaymentMethod,
+  f.REC_SRC,
+  SUM(p.Amount) AS Total_Revenue
+FROM flights f
+JOIN bookings b
+  ON f.FlightID_bk = b.FlightID_bk AND f.REC_SRC = b.REC_SRC
+JOIN payments p
+  ON b.PaymentID_bk = p.PaymentID_bk AND b.REC_SRC = p.REC_SRC
+GROUP BY f.FlightID_bk, f.FlightNumber,p.PaymentID_bk,p.PaymentMethod, f.REC_SRC
+ORDER BY total_revenue DESC

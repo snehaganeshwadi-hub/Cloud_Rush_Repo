@@ -1,0 +1,36 @@
+--5)MONTHLY_BOOKINGS_PER_ROUTE:
+
+config {
+  type: "table",
+  schema: "Business_Vault",
+  tags: ["monthly_bookings_per_route"]
+} 
+
+--MONTHLY_BOOKING_PER_ROUTE:
+
+SELECT
+  fd.OriginAirportCode,
+  fd.DestinationAirportCode,
+  fd.REC_SRC,
+  fd.FlightID_bk,
+  b.BookingID_bk,
+  b.Status,
+  b.BookingDate,
+  FORMAT_DATE ('%Y-%m', b.BookingDate) AS booking_month,
+  COUNT(*) AS total_bookings
+FROM (
+  SELECT distinct FlightID_bk, OriginAirportCode, DestinationAirportCode, 'AI' AS REC_SRC FROM 
+  ${ref("Sat_AI_flight_satellite")}
+  --`cloud-rush-473406.Row_Vault.Sat_AI_flight_satellite`
+  UNION ALL
+  SELECT distinct FlightID_bk, OriginAirportCode, DestinationAirportCode, 'SJ' AS REC_SRC FROM 
+  ${ref("Sat_SJ_flight_satellite")}
+  --`cloud-rush-473406.Row_Vault.Sat_SJ_flight_satellite`
+) fd
+JOIN (
+  SELECT  FlightID, BookingDate,BookingID_bk,Status FROM
+  ${ref("Sat_SJ_booking_satellite")}
+  --`cloud-rush-473406.Row_Vault.Sat_SJ_booking_satellite`
+) b
+  ON fd.FlightID_bk = b.FlightID AND b.Status = 'Complete'
+GROUP BY fd.OriginAirportCode, fd.DestinationAirportCode, fd.REC_SRC, booking_month,fd.FlightID_bk,b.BookingID_bk,b.Status,b.BookingDate

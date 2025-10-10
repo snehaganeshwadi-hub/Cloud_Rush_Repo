@@ -1,0 +1,59 @@
+config {
+  type: "table",
+  schema: "Presentation_Vault",
+  tags: ["Target Table"]
+}
+
+SELECT
+  DISTINCT t1.SeatClass,
+  t1.SeatNumber,
+  t1.BookingID_bk,
+  t1.TICKET_PRICE,
+  t2.OriginAirportCode,
+  t2.DestinationAirportCode,
+  t2.REC_SRC,
+  t2.FlightID_bk,
+  t2.Status,
+  t2.BookingDate,
+  t2.booking_month,
+  t2.total_bookings,
+  t3.FlightNumber,
+  t3.SeatCapacity,
+  t3.AvailableSeats,
+  t3.delay_hours,
+  t4.SeatClass AS TopRevenue_SeatClass,
+  t4.SeatNumber AS TopRevenue_SeatNumber,
+  t4.TICKET_PRICE AS TopRevenue_TicketPrice,
+  t5.PassengerID_bk,
+  t5.FirstName,
+  t5.LastName,
+  t5.DOB,
+  t5.Age,
+  t5.AgeGroupID,
+  t5.AgeGroup_LowerLimit,
+  t5.AgeGroup_UpperLimit,
+  t5.NumberOfFlights
+FROM
+  `cloud-rush-473406`.`Business_Vault`.`AVERAGE_TICKET_PRICE_PER_CLASS` AS t1
+INNER JOIN
+  `cloud-rush-473406`.`Business_Vault`.`MONTHLY_BOOKING_PER_ROUTE` AS t2
+ON
+  t1.BookingID_bk = t2.BookingID_bk
+INNER JOIN
+  `cloud-rush-473406`.`Business_Vault`.`MOST_DELAYED_FLIGHTS` AS t3
+ON
+  t2.FlightID_bk = t3.FlightID_bk
+  AND t2.REC_SRC = t3.REC_SRC
+INNER JOIN
+  `cloud-rush-473406`.`Business_Vault`.`TOP_REVENUE_FLIGHTS` AS t4
+ON
+  t1.BookingID_bk = t4.BookingID_bk
+  AND t1.TICKET_PRICE = t4.TICKET_PRICE
+INNER JOIN
+  `cloud-rush-473406`.`Row_Vault`.`Link_AI_passenger_booking_flight` AS link_ai
+ON
+  t1.BookingID_bk = link_ai.BookingID_bk
+INNER JOIN
+  `cloud-rush-473406`.`Business_Vault`.`FREQUENT_FLYERS_AGE_GROUP` AS t5
+ON
+  link_ai.PassengerID_bk = t5.PassengerID_bk

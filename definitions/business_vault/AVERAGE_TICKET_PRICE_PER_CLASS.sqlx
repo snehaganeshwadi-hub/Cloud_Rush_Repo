@@ -1,0 +1,48 @@
+--1)AVERAGE_TICKET_PRICE_PER_CLASS :
+
+config {
+  type: "table",
+  schema: "Business_Vault",
+  tags: ["monthly_bookings"]
+}
+
+--AVERAGE TICKET PRICE PER CLASS
+  
+  SELECT 
+  SeatClass,
+  SeatNumber,
+  BookingID_bk,
+  TicketPrice AS TICKET_PRICE
+FROM (
+  SELECT 
+    LBP.SeatClass,
+    LBP.SeatNumber,
+    LBP.BookingID_bk,
+    'AI' AS REC_SRC,
+    SAP.Amount AS TicketPrice
+  FROM 
+   ${ref("Sat_AI_booking_satellite")} AS LBP
+   --`cloud-rush-473406.Row_Vault.Sat_AI_booking_satellite`AS LBP
+    INNER JOIN ${ref("Sat_AI_payment_satellite")} AS SAP
+    --`cloud-rush-473406.Row_Vault.Sat_AI_payment_satellite` AS SAP
+  ON LBP.PaymentID = SAP.PaymentID_bk
+  GROUP BY 
+    LBP.SeatClass,LBP.SeatNumber,LBP.BookingID_bk,SAP.Amount
+  UNION ALL
+  SELECT 
+    LBPF.SeatClass,
+    LBPF.SeatNumber,
+    LBPF.BookingID_bk,
+    'SJ' AS REC_SRC,
+    SSP.Amount AS TicketPrice
+  FROM 
+   ${ref("Sat_SJ_booking_satellite")} AS LBPF
+   -- `cloud-rush-473406.Row_Vault.Sat_SJ_booking_satellite`AS LBPF
+    INNER JOIN ${ref("Sat_SJ_payment_satellite")} AS SSP
+    --`cloud-rush-473406.Row_Vault.Sat_SJ_payment_satellite`AS SSP
+     ON LBPF.PaymentID = SSP.PaymentID_bk
+  GROUP BY 
+    LBPF.SeatClass,LBPF.SeatNumber,LBPF.BookingID_bk,SSP.Amount
+) AS CombinedData
+GROUP BY 
+  SeatClass,SeatNumber,BookingID_bk,TICKET_PRICE

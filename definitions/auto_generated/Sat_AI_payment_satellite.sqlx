@@ -1,44 +1,17 @@
 
 config {
- type: "table",
-  tags: ["hub"],
+  type: "table",
+  tags: ["satellite"],
+  schema: "Row_Vault",
   partitionBy: "load_dts",
-  clusterBy: ["PaymentID"]
+  clusterBy: ["PaymentID_bk"]
 }
-// SCD Type 2 History Tracking
-// Track changes in descriptive attributes
-with source_data as (
- SELECT
+ 
+SELECT
   TO_HEX(SHA256(CAST(PaymentID AS STRING))) AS PaymentID_hk,
   PaymentID AS PaymentID_bk,
+  Amount,PaymentMethod,
   CURRENT_DATE() AS load_dts,
-  'Airindia_Payment' as record_source
+  'Airindia_Payment' AS record_source
 FROM
-  ${ref('Airindia_Payment')}
-),
-scd2 as (
- select
-   s.PaymentID,
-   s.Amount,
-   s.load_dts,
-   s.record_source,
-   case
-     when t.PaymentID is null then true
-     when s.Amount <> t.Amount then true
-     else false
-   end as is_changed
- from source_data s
- left join Sat_AI_payment_satellite t
- on s.PaymentID = t.PaymentID
- and t.is_current = true
-)
-select
- PaymentID,
- Amount,
- load_dts,
- record_source,
- case when is_changed then true else false end as is_current,
- case when is_changed then load_dts else null end as effective_start_date,
- null as effective_end_date
-from scd2
-   
+  ${ref("Airindia_Payment")}

@@ -2,7 +2,7 @@ config {
   type: "table",
   tags: ["hub"],
   partitionBy: "load_dts",
-  clusterBy: ["PassengerID"]
+  clusterBy: ["PassengerID_bk"]
 } 
 SELECT
   TO_HEX(SHA256(CAST(PassengerID AS STRING))) AS PassengerID_hk,

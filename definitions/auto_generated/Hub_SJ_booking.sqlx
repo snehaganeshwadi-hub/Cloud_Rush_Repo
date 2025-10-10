@@ -1,15 +1,16 @@
 
 config {
- type: "table",
+  type: "table",
   tags: ["hub"],
+  schema: "Row_Vault",
   partitionBy: "load_dts",
-  clusterBy: ["BookingID"]
+  clusterBy: ["BookingID_bk"]
 }
+ 
 SELECT
   TO_HEX(SHA256(CAST(BookingID AS STRING))) AS BookingID_hk,
   BookingID AS BookingID_bk,
   CURRENT_DATE() AS load_dts,
-  'SpiceJet_Booking_Details' as record_source
+  'SpiceJet_Booking_Details' AS record_source
 FROM
-  ${ref('SpiceJet_Booking_Details')}
-   
+  ${ref("SpiceJet_Booking_Details")}

@@ -1,0 +1,18 @@
+0 verbose cli /usr/local/nvm/versions/node/v22.20.0/bin/node /usr/local/nvm/versions/node/v22.20.0/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@11.6.1
+2 info using node@v22.20.0
+3 silly config load:file:/usr/local/nvm/versions/node/v22.20.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/home/snehaganeshwadi/.npmrc
+5 silly config load:file:/usr/local/nvm/versions/node/v22.20.0/etc/npmrc
+6 verbose title npm exec dataform run
+7 verbose argv "exec" "--" "dataform" "run"
+8 verbose logfile logs-max:10 dir:/home/snehaganeshwadi/.npm/_logs/2025-10-09T13_01_29_076Z-
+9 verbose logfile /home/snehaganeshwadi/.npm/_logs/2025-10-09T13_01_29_076Z-debug-0.log
+10 silly logfile start cleaning logs, removing 1 files
+11 silly logfile done cleaning log files
+12 verbose cwd /home/snehaganeshwadi
+13 verbose os Linux 6.6.105+
+14 verbose node v22.20.0
+15 verbose npm  v11.6.1
+16 verbose exit 1
+17 verbose code 1

@@ -5,7 +5,7 @@ import path from "path";
 import readline from "readline";
 // Metadata CSV path
 const metadataFile = "./metadata.csv";
-const outputDir = "./definitions/auto_generated"; // SQLX output directory
+const outputDir = "./definitions/auto_generated1"; // SQLX output directory
 // Ensure output directory exists
 if (!fs.existsSync(outputDir)) {
  fs.mkdirSync(outputDir);
@@ -43,15 +43,15 @@ config {
  type: "table",
   tags: ["hub"],
   partitionBy: "load_dts",
-  clusterBy: ["${business_key}"]
+  clusterBy: ["${business_key}_bk"]
 }
 SELECT
   TO_HEX(SHA256(CAST(${business_key} AS STRING))) AS ${business_key}_hk,
-  ${business_key} AS PassengerID_bk,
+  ${business_key} AS ${business_key}_bk,
   CURRENT_DATE() AS load_dts,
   '${source_table}' as record_source
 FROM
-  \${ref('${source_table}')}
+  \${ref("${source_table}")}
    `;
  }
  else if (table_type === "link") {
@@ -60,15 +60,15 @@ config {
  type: "table",
   tags: ["link"],
   partitionBy: "load_dts",
-  clusterBy: ["${business_key}"]
+  clusterBy: ["${business_key}_bk"]
 }
 SELECT
   TO_HEX(SHA256(CAST(${business_key} AS STRING))) AS ${business_key}_hk,
-  ${business_key} AS PassengerID_bk,
+  ${business_key} AS ${business_key}_bk,
   CURRENT_DATE() AS load_dts,
   '${source_table}' as record_source
 FROM
-  \${ref('${source_table}')}
+  \${ref("${source_table}")}
 `;
  }
  else if (table_type === "satellite") {
@@ -77,18 +77,18 @@ config {
  type: "table",
   tags: ["satellite"],
   partitionBy: "load_dts",
-  clusterBy: ["${business_key}"]
+  clusterBy: ["${business_key}_bk"]
 }
 // SCD Type 2 History Tracking
 // Track changes in descriptive attributes
 with source_data as (
  SELECT
   TO_HEX(SHA256(CAST(${business_key} AS STRING))) AS ${business_key}_hk,
-  ${business_key} AS PassengerID_bk,
+  ${business_key} AS ${business_key}_bk,
   CURRENT_DATE() AS load_dts,
   '${source_table}' as record_source
 FROM
-  \${ref('${source_table}')}
+  \${ref("${source_table}")}
 ),
 scd2 as (
  select
